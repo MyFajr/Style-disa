@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "type": "esds-palette",
+  "palette": {
+    "name": "My Custom Palette",
+    "mood": "Пользовательская палитра",
+    "description": "Краткое описание палитры.",
+    "swatches": [
+      "#336699",
+      "#9966aa",
+      "#278566",
+      "#d36a79",
+      "#b88635"
+    ],
+    "defaultBackground": "bg-01-reading-ivory",
+    "defaultBlocks": "soft",
+    "roles": {
+      "en": "#336699",
+      "ipa": "#9966aa",
+      "translation": "#278566",
+      "term": "#9a4e88",
+      "definition": "#596879",
+      "focus": "#d45c78",
+      "secondary": "#b27a2d",
+      "soft": "#8c6db0",
+      "heading": "#51428d",
+      "ink": "#302d38"
+    },
+    "dark": {
+      "en": "#9bc8ff",
+      "ipa": "#d8b1f2",
+      "translation": "#8de0bd",
+      "term": "#e1a5d0",
+      "definition": "#c1cad8",
+      "focus": "#ffa1b8",
+      "secondary": "#efc77e",
+      "soft": "#c6a8ed",
+      "heading": "#d1c2ff",
+      "ink": "#f0edf5"
+    },
+    "callouts": {
+      "rule": [
+        51,
+        102,
+        153
+      ],
+      "example": [
+        153,
+        102,
+        170
+      ],
+      "important": [
+        211,
+        92,
+        121
+      ],
+      "tip": [
+        39,
+        133,
+        102
+      ],
+      "warning": [
+        183,
+        129,
+        47
+      ],
+      "question": [
+        39,
+        132,
+        164
+      ],
+      "practice": [
+        194,
+        110,
+        57
+      ],
+      "success": [
+        37,
+        143,
+        100
+      ],
+      "info": [
+        66,
+        112,
+        177
+      ],
+      "note": [
+        112,
+        112,
+        142
+      ],
+      "quote": [
+        176,
+        82,
+        137
+      ],
+      "abstract": [
+        115,
+        86,
+        170
+      ]
+    },
+    "darkCallouts": {
+      "rule": [
+        130,
+        185,
+        250
+      ],
+      "example": [
+        204,
+        164,
+        238
+      ],
+      "important": [
+        255,
+        151,
+        177
+      ],
+      "tip": [
+        110,
+        216,
+        170
+      ],
+      "warning": [
+        238,
+        197,
+        119
+      ],
+      "question": [
+        109,
+        209,
+        232
+      ],
+      "practice": [
+        255,
+        169,
+        119
+      ],
+      "success": [
+        107,
+        223,
+        167
+      ],
+      "info": [
+        140,
+        183,
+        247
+      ],
+      "note": [
+        184,
+        186,
+        211
+      ],
+      "quote": [
+        236,
+        158,
+        207
+      ],
+      "abstract": [
+        186,
+        160,
+        239
+      ]
+    }
+  }
+}

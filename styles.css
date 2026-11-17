@@ -1,0 +1,3075 @@
+/* English Study Design Studio 0.5.5 — vivid mobile-first visual system */
+.esds-main-modal { width: min(840px, 96vw); max-width: 96vw; }
+.esds-main-modal .modal-content, .esds-preview-modal .modal-content, .esds-builder-modal .modal-content { padding: 0 !important; }
+.esds-main-content, .esds-preview-modal-content, .esds-builder-content { max-height: 92vh; max-height: 92dvh; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding: 0; }
+.esds-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px 18px 12px; border-bottom:1px solid var(--background-modifier-border); }
+.esds-heading-wrap { min-width:0; }
+.esds-heading-wrap h2 { margin:0 0 4px; font-size:1.14rem; }
+.esds-heading-wrap p { margin:0; color:var(--text-muted); font-size:var(--font-sm); }
+.esds-icon-button { border:0; background:transparent; color:var(--text-muted); font-size:1.55rem; min-width:38px; min-height:38px; border-radius:9px; }
+.esds-current-summary { display:flex; flex-direction:column; gap:3px; padding:11px 16px 5px; color:var(--text-normal); font-size:.88rem; font-weight:650; }
+.esds-current-summary small { color:var(--text-muted); font-weight:400; font-size:.75rem; }
+.esds-quick-actions { display:flex; flex-wrap:wrap; gap:8px; padding:8px 16px 12px; }
+.esds-library-shortcuts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; padding:0 16px 12px; }
+.esds-library-shortcuts .esds-button { min-width:0; text-align:center; overflow-wrap:anywhere; }
+.esds-library-shortcuts .esds-button:disabled { opacity:.48; }
+.esds-latest-added .esds-palette-card { max-width:100%; }
+
+.esds-accordion { margin:0 12px 12px; border:1px solid var(--background-modifier-border); border-radius:12px; overflow:visible; background:var(--background-primary); }
+.esds-accordion-trigger { display:flex; align-items:center; gap:11px; width:100%; min-height:58px; text-align:left; padding:9px 13px; background:var(--background-secondary); color:var(--text-normal); border:0; }
+.esds-accordion.is-open .esds-accordion-trigger { background:var(--background-primary-alt); }
+.esds-accordion-icon { width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--background-modifier-hover); font-size:1.1rem; flex-shrink:0; }
+.esds-accordion-labels { display:flex; flex:1; flex-direction:column; gap:2px; min-width:0; }
+.esds-accordion-labels strong { font-size:.9rem; }
+.esds-accordion-labels small { color:var(--text-muted); font-size:.72rem; }
+.esds-chevron { color:var(--text-muted); font-size:1.35rem; padding:0 5px; }
+.esds-accordion-body { padding:12px; border-top:1px solid var(--background-modifier-border); }
+.esds-section-note, .esds-path-note { color:var(--text-muted); font-size:.77rem; line-height:1.45; margin:0 0 12px; }
+.esds-subsection { margin-top:12px; }
+.esds-subsection h4 { margin:0 0 8px; font-size:.82rem; color:var(--text-normal); }
+.esds-palette-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.esds-palette-card { position:relative; width:100%; min-width:0; text-align:left; padding:10px; border:1px solid var(--background-modifier-border); background:var(--background-secondary); border-radius:11px; color:var(--text-normal); display:flex; flex-direction:column; gap:5px; }
+.esds-palette-card.is-selected, .esds-bg-card.is-selected, .esds-block-card.is-selected { border-color:var(--interactive-accent); box-shadow:0 0 0 1px var(--interactive-accent); }
+.esds-palette-card strong { font-size:.85rem; }
+.esds-palette-card small { color:var(--text-muted); font-size:.7rem; line-height:1.3; }
+.esds-card-status { font-size:.58rem; letter-spacing:.06em; color:var(--text-faint); }
+.esds-swatches { display:flex; gap:5px; flex-wrap:wrap; }
+.esds-swatch { width:19px; height:19px; border-radius:50%; border:1px solid rgba(0,0,0,.12); }
+.esds-empty { color:var(--text-muted); font-size:.78rem; margin:6px 0; }
+.esds-inline-actions, .esds-library-actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+.esds-button { min-height:40px; padding:8px 12px; border-radius:9px; border:1px solid var(--background-modifier-border); background:var(--background-secondary); color:var(--text-normal); font-size:.8rem; }
+.esds-button.esds-primary { background:var(--interactive-accent); color:var(--text-on-accent); border-color:var(--interactive-accent); }
+.esds-button.esds-danger { color:var(--text-error); }
+.esds-bg-search { margin:0 0 8px; }
+.esds-bg-filter { margin:0 0 10px; }
+.esds-text-input { width:100%; min-height:40px; padding:8px 10px; border-radius:9px; border:1px solid var(--background-modifier-border); background:var(--background-primary); color:var(--text-normal); }
+.esds-background-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; max-height:none; overflow:visible; padding:2px 2px 10px; }
+.esds-bg-card { text-align:left; border:1px solid var(--background-modifier-border); border-radius:11px; overflow:hidden; padding:0; background:var(--background-secondary); color:var(--text-normal); min-width:0; }
+.esds-bg-thumb { display:block; height:104px; width:100%; max-height:none !important; margin:0 !important; border:0; border-radius:0; overflow:hidden; }
+.esds-bg-card > span { display:block; padding:7px 8px 2px; font-size:.72rem; line-height:1.3; font-weight:650; }
+.esds-bg-card > small { display:block; padding:0 8px 7px; color:var(--text-muted); font-size:.62rem; }
+.esds-block-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.esds-block-card { display:flex; flex-direction:column; gap:6px; text-align:left; padding:8px; border:1px solid var(--background-modifier-border); border-radius:10px; background:var(--background-secondary); color:var(--text-normal); min-width:0; }
+.esds-block-card > strong { font-size:.75rem; }
+.esds-block-card > small { color:var(--text-muted); font-size:.66rem; line-height:1.3; }
+.esds-block-demo { min-height:57px; padding:8px; border-radius:9px; display:flex; flex-direction:column; justify-content:center; gap:4px; color:var(--text-normal); background:var(--background-primary); font-size:.68rem; }
+.esds-block-demo-soft { border:1px solid var(--interactive-accent); background:var(--background-primary-alt); }
+.esds-block-demo-rich { border:2px solid var(--interactive-accent); background:var(--background-modifier-hover); }
+.esds-block-demo-outline { border:1px solid var(--interactive-accent); background:transparent; }
+.esds-library-row { display:flex; gap:6px; align-items:center; margin:5px 0; }
+.esds-library-item { flex:1; min-height:38px; text-align:left; padding:7px 9px; border:1px solid var(--background-modifier-border); border-radius:8px; background:var(--background-secondary); color:var(--text-normal); font-size:.76rem; }
+.esds-small-x { min-width:32px; min-height:32px; }
+.esds-main-footer { position:sticky; bottom:0; z-index:2; display:flex; flex-wrap:wrap; gap:7px; padding:11px 14px max(12px, env(safe-area-inset-bottom)); border-top:1px solid var(--background-modifier-border); background:var(--background-primary); }
+.esds-main-footer .esds-button { flex:1 1 auto; }
+.esds-preview-modal { width:min(700px,96vw); max-width:96vw; }
+.esds-preview-modal-content { padding-bottom:max(12px,env(safe-area-inset-bottom)); }
+.esds-preview-modal-header { position:sticky; top:0; z-index:2; background:var(--background-primary); }
+.esds-preview { margin:12px; border-radius:14px; overflow-y:auto; max-height:58vh; border:1px solid var(--background-modifier-border); background:var(--note-background,var(--background-primary)); color:var(--esds-ink,var(--text-normal)); }
+.esds-sample-note { padding:17px; }
+.esds-kicker { display:inline-block; font-size:.65rem; font-weight:700; letter-spacing:.12em; opacity:.72; margin-bottom:8px; }
+.esds-sample-note h1 { margin:0 0 12px; font-size:1.32rem; line-height:1.25; }
+.esds-sample-note h2 { margin:20px 0 9px; font-size:1.02rem; }
+.esds-role { margin:7px 0; line-height:1.5; }
+.esds-focus-row { display:flex; flex-wrap:wrap; gap:7px; margin:14px 0; }
+.esds-focus-row span { border-radius:7px; padding:5px 8px; font-size:.72rem; font-weight:650; }
+.esds-example-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.esds-demo-callout { padding:9px 10px; border-radius:var(--esds-block-radius,11px); border:1px solid currentColor; border-left-width:4px; background:rgba(var(--esds-callout-rgb),var(--esds-block-opacity,.13)); border-color:rgba(var(--esds-callout-rgb),var(--esds-block-border-opacity,.48)); }
+.esds-demo-callout strong { display:block; font-size:.76rem; margin-bottom:3px; }
+.esds-demo-callout p { margin:0; font-size:.73rem; line-height:1.4; color:var(--esds-ink,var(--text-normal)); }
+.esds-preview-actions { display:flex; flex-wrap:wrap; gap:8px; padding:0 12px; }
+.esds-footnote { color:var(--text-muted); font-size:.72rem; line-height:1.4; margin:10px 14px; }
+.esds-builder-modal { width:min(620px,96vw); max-width:96vw; }
+.esds-builder-body { padding:14px 16px; }
+.esds-color-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin-top:12px; }
+.esds-color-field { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px; border:1px solid var(--background-modifier-border); border-radius:9px; }
+.esds-color-field label { font-size:.75rem; color:var(--text-normal); }
+.esds-color-field input[type=color] { width:43px; height:34px; border:0; background:transparent; padding:0; }
+.esds-background-colors { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.esds-custom-bg-preview { height:86px; border-radius:12px; margin-top:12px; border:1px solid var(--background-modifier-border); }
+
+/* Palette role colours. Each palette changes text accents only; note backgrounds are independent. */
+
+.esds-preview.candy-pop,
+.markdown-preview-view.esds-note.esds-palette-candy-pop,
+.markdown-source-view.esds-note.esds-palette-candy-pop { --esds-en: #2868d8; --esds-ipa: #9251bd; --esds-translation: #16845e; --esds-term: #a23b83; --esds-definition: #53627d; --esds-focus: #e74e70; --esds-secondary: #c27a18; --esds-soft: #9555b5; --esds-heading: #6540a2; --esds-ink: #352a45; }
+
+body.theme-dark .esds-preview.candy-pop,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-candy-pop,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-candy-pop { --esds-en: #8fc1ff; --esds-ipa: #d4a4f2; --esds-translation: #82ddb4; --esds-term: #f0a5d7; --esds-definition: #bdc1d6; --esds-focus: #ff91aa; --esds-secondary: #f2c078; --esds-soft: #d1a2f0; --esds-heading: #d0b3ff; --esds-ink: #f0e8f7; }
+
+.esds-preview.candy-pop,
+.markdown-preview-view.esds-note.esds-palette-candy-pop,
+.markdown-source-view.esds-note.esds-palette-candy-pop { --esds-callout-rule: 48, 112, 210; --esds-callout-example: 142, 82, 194; --esds-callout-important: 228, 72, 112; --esds-callout-tip: 31, 145, 103; --esds-callout-warning: 209, 132, 34; --esds-callout-question: 25, 151, 177; --esds-callout-practice: 223, 111, 48; --esds-callout-success: 28, 153, 102; --esds-callout-info: 67, 111, 207; --esds-callout-note: 119, 111, 151; --esds-callout-quote: 194, 82, 143; --esds-callout-abstract: 125, 83, 185; }
+
+body.theme-dark .esds-preview.candy-pop,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-candy-pop,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-candy-pop { --esds-callout-rule: 112, 166, 255; --esds-callout-example: 194, 146, 235; --esds-callout-important: 255, 137, 169; --esds-callout-tip: 105, 214, 170; --esds-callout-warning: 247, 193, 112; --esds-callout-question: 99, 211, 231; --esds-callout-practice: 255, 164, 112; --esds-callout-success: 103, 219, 163; --esds-callout-info: 133, 171, 255; --esds-callout-note: 185, 177, 215; --esds-callout-quote: 241, 143, 203; --esds-callout-abstract: 185, 149, 239; }
+
+.esds-preview.ocean-breeze,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze { --esds-en: #087eac; --esds-ipa: #7854bb; --esds-translation: #13866e; --esds-term: #197b89; --esds-definition: #516c7b; --esds-focus: #d46d3c; --esds-secondary: #9b762d; --esds-soft: #508da9; --esds-heading: #145d82; --esds-ink: #203a49; }
+
+body.theme-dark .esds-preview.ocean-breeze,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-ocean-breeze,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-ocean-breeze { --esds-en: #7bd4ff; --esds-ipa: #c3a7ff; --esds-translation: #75dfbd; --esds-term: #81d5dc; --esds-definition: #b6cbd3; --esds-focus: #ffad80; --esds-secondary: #e4c27d; --esds-soft: #8ec5df; --esds-heading: #8dd8f3; --esds-ink: #e4f3f7; }
+
+.esds-preview.ocean-breeze,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze { --esds-callout-rule: 28, 126, 171; --esds-callout-example: 121, 86, 184; --esds-callout-important: 210, 100, 63; --esds-callout-tip: 28, 139, 112; --esds-callout-warning: 203, 139, 55; --esds-callout-question: 20, 151, 179; --esds-callout-practice: 202, 113, 61; --esds-callout-success: 29, 147, 105; --esds-callout-info: 48, 118, 179; --esds-callout-note: 93, 123, 139; --esds-callout-quote: 172, 92, 143; --esds-callout-abstract: 109, 91, 174; }
+
+body.theme-dark .esds-preview.ocean-breeze,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-ocean-breeze,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-ocean-breeze { --esds-callout-rule: 105, 204, 241; --esds-callout-example: 186, 157, 244; --esds-callout-important: 255, 160, 126; --esds-callout-tip: 101, 215, 186; --esds-callout-warning: 238, 195, 117; --esds-callout-question: 94, 219, 237; --esds-callout-practice: 255, 169, 119; --esds-callout-success: 100, 219, 177; --esds-callout-info: 118, 186, 239; --esds-callout-note: 167, 201, 214; --esds-callout-quote: 226, 151, 207; --esds-callout-abstract: 175, 157, 232; }
+
+.esds-preview.royal-plum,
+.markdown-preview-view.esds-note.esds-palette-royal-plum,
+.markdown-source-view.esds-note.esds-palette-royal-plum { --esds-en: #3156a8; --esds-ipa: #9a4f91; --esds-translation: #23836e; --esds-term: #8b467c; --esds-definition: #5c5a70; --esds-focus: #bd5d78; --esds-secondary: #ad762c; --esds-soft: #8562b5; --esds-heading: #493c87; --esds-ink: #30283e; }
+
+body.theme-dark .esds-preview.royal-plum,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-royal-plum,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-royal-plum { --esds-en: #9bb8ff; --esds-ipa: #e0a5d5; --esds-translation: #8bd9c0; --esds-term: #dc9acb; --esds-definition: #c9bfd2; --esds-focus: #f29bb5; --esds-secondary: #e8c17f; --esds-soft: #c6a4ec; --esds-heading: #c5b4ff; --esds-ink: #f1eaf6; }
+
+.esds-preview.royal-plum,
+.markdown-preview-view.esds-note.esds-palette-royal-plum,
+.markdown-source-view.esds-note.esds-palette-royal-plum { --esds-callout-rule: 61, 94, 174; --esds-callout-example: 145, 79, 151; --esds-callout-important: 191, 76, 112; --esds-callout-tip: 38, 132, 108; --esds-callout-warning: 187, 125, 49; --esds-callout-question: 56, 129, 164; --esds-callout-practice: 183, 102, 65; --esds-callout-success: 37, 139, 103; --esds-callout-info: 63, 100, 174; --esds-callout-note: 112, 100, 136; --esds-callout-quote: 178, 79, 132; --esds-callout-abstract: 112, 76, 165; }
+
+body.theme-dark .esds-preview.royal-plum,
+body.theme-dark .markdown-preview-view.esds-note.esds-palette-royal-plum,
+body.theme-dark .markdown-source-view.esds-note.esds-palette-royal-plum { --esds-callout-rule: 139, 164, 242; --esds-callout-example: 221, 148, 218; --esds-callout-important: 245, 143, 174; --esds-callout-tip: 100, 204, 170; --esds-callout-warning: 239, 195, 117; --esds-callout-question: 127, 197, 226; --esds-callout-practice: 241, 158, 125; --esds-callout-success: 104, 212, 171; --esds-callout-info: 138, 166, 232; --esds-callout-note: 190, 173, 207; --esds-callout-quote: 232, 151, 198; --esds-callout-abstract: 190, 155, 232; }
+
+
+/* Semantic spans inside the note: the palette controls role colours only. */
+.markdown-preview-view.esds-note .study-en, .markdown-source-view.esds-note .study-en,
+.markdown-preview-view.esds-note .esds-en, .markdown-source-view.esds-note .esds-en { color: var(--esds-en); font-weight: 700; }
+.markdown-preview-view.esds-note .study-ipa, .markdown-source-view.esds-note .study-ipa,
+.markdown-preview-view.esds-note .esds-ipa, .markdown-source-view.esds-note .esds-ipa { color: var(--esds-ipa); font-style: italic; }
+.markdown-preview-view.esds-note .study-translation, .markdown-source-view.esds-note .study-translation,
+.markdown-preview-view.esds-note .esds-translation, .markdown-source-view.esds-note .esds-translation { color: var(--esds-translation); }
+.markdown-preview-view.esds-note .study-term, .markdown-source-view.esds-note .study-term,
+.markdown-preview-view.esds-note .esds-term, .markdown-source-view.esds-note .esds-term { color: var(--esds-term); font-weight: 650; }
+.markdown-preview-view.esds-note .study-definition, .markdown-source-view.esds-note .study-definition,
+.markdown-preview-view.esds-note .esds-definition, .markdown-source-view.esds-note .esds-definition { color: var(--esds-definition); }
+.markdown-preview-view.esds-note .study-focus, .markdown-source-view.esds-note .study-focus,
+.markdown-preview-view.esds-note .esds-focus, .markdown-source-view.esds-note .esds-focus { color: var(--esds-focus); font-weight: 700; }
+.markdown-preview-view.esds-note .study-focus-secondary, .markdown-source-view.esds-note .study-focus-secondary,
+.markdown-preview-view.esds-note .esds-focus-secondary { color: var(--esds-secondary); font-weight: 650; }
+.markdown-preview-view.esds-note .study-focus-soft, .markdown-source-view.esds-note .study-focus-soft,
+.markdown-preview-view.esds-note .esds-focus-soft { color: var(--esds-soft); }
+.markdown-preview-view.esds-note h1, .markdown-preview-view.esds-note h2, .markdown-preview-view.esds-note h3 { color: var(--esds-heading); }
+.markdown-preview-view.esds-note { color: var(--esds-ink, var(--text-normal)); }
+.markdown-preview-view.esds-note .markdown-preview-sizer { background: transparent !important; }
+
+/* Callout type colours inherit from the selected palette. */
+
+.markdown-preview-view.esds-note .callout[data-callout="rule"], .markdown-source-view.esds-note .callout[data-callout="rule"] { --callout-color: var(--esds-callout-rule); }
+
+.markdown-preview-view.esds-note .callout[data-callout="example"], .markdown-source-view.esds-note .callout[data-callout="example"] { --callout-color: var(--esds-callout-example); }
+
+.markdown-preview-view.esds-note .callout[data-callout="important"], .markdown-source-view.esds-note .callout[data-callout="important"] { --callout-color: var(--esds-callout-important); }
+
+.markdown-preview-view.esds-note .callout[data-callout="tip"], .markdown-source-view.esds-note .callout[data-callout="tip"] { --callout-color: var(--esds-callout-tip); }
+
+.markdown-preview-view.esds-note .callout[data-callout="warning"], .markdown-source-view.esds-note .callout[data-callout="warning"] { --callout-color: var(--esds-callout-warning); }
+
+.markdown-preview-view.esds-note .callout[data-callout="question"], .markdown-source-view.esds-note .callout[data-callout="question"] { --callout-color: var(--esds-callout-question); }
+
+.markdown-preview-view.esds-note .callout[data-callout="practice"], .markdown-source-view.esds-note .callout[data-callout="practice"] { --callout-color: var(--esds-callout-practice); }
+
+.markdown-preview-view.esds-note .callout[data-callout="success"], .markdown-source-view.esds-note .callout[data-callout="success"] { --callout-color: var(--esds-callout-success); }
+
+.markdown-preview-view.esds-note .callout[data-callout="info"], .markdown-source-view.esds-note .callout[data-callout="info"] { --callout-color: var(--esds-callout-info); }
+
+.markdown-preview-view.esds-note .callout[data-callout="note"], .markdown-source-view.esds-note .callout[data-callout="note"] { --callout-color: var(--esds-callout-note); }
+
+.markdown-preview-view.esds-note .callout[data-callout="quote"], .markdown-source-view.esds-note .callout[data-callout="quote"] { --callout-color: var(--esds-callout-quote); }
+
+.markdown-preview-view.esds-note .callout[data-callout="abstract"], .markdown-source-view.esds-note .callout[data-callout="abstract"] { --callout-color: var(--esds-callout-abstract); }
+
+
+/* Block appearance is a separate choice from the text palette and note background. */
+.markdown-preview-view.esds-note.esds-blocks-soft .callout,
+.markdown-source-view.esds-note.esds-blocks-soft .callout { --esds-block-opacity: .13; --esds-block-border-opacity: .48; --esds-block-radius: 12px; --esds-block-border-width: 1px; }
+.markdown-preview-view.esds-note.esds-blocks-rich .callout,
+.markdown-source-view.esds-note.esds-blocks-rich .callout { --esds-block-opacity: .21; --esds-block-border-opacity: .72; --esds-block-radius: 10px; --esds-block-border-width: 1px; }
+.markdown-preview-view.esds-note.esds-blocks-outline .callout,
+.markdown-source-view.esds-note.esds-blocks-outline .callout { --esds-block-opacity: .045; --esds-block-border-opacity: .82; --esds-block-radius: 8px; --esds-block-border-width: 1px; }
+.markdown-preview-view.esds-note .callout,
+.markdown-source-view.esds-note .callout {
+  --callout-background-opacity: var(--esds-block-opacity, .13);
+  --callout-border-opacity: var(--esds-block-border-opacity, .48);
+  background-color: rgba(var(--callout-color), var(--esds-block-opacity, .13)) !important;
+  border: var(--esds-block-border-width, 1px) solid rgba(var(--callout-color), var(--esds-block-border-opacity, .48)) !important;
+  border-left-width: 4px !important;
+  border-radius: var(--esds-block-radius, 12px) !important;
+  box-shadow: none;
+}
+.markdown-preview-view.esds-note .callout-title,
+.markdown-source-view.esds-note .callout-title { color: rgb(var(--callout-color)); }
+
+/* Matching live preview of all three independent controls. */
+.esds-preview h1, .esds-preview h2 { color: var(--esds-heading); }
+.esds-preview .esds-en { color: var(--esds-en); font-weight: 700; }
+.esds-preview .esds-ipa { color: var(--esds-ipa); font-style: italic; }
+.esds-preview .esds-translation { color: var(--esds-translation); }
+.esds-preview .esds-term { color: var(--esds-term); font-weight: 650; }
+.esds-preview .esds-definition { color: var(--esds-definition); }
+.esds-preview .esds-focus { color: var(--esds-focus); background: rgba(128, 80, 120, .10); }
+.esds-preview .esds-focus-secondary { color: var(--esds-secondary); background: rgba(128, 100, 50, .10); }
+.esds-preview .esds-focus-soft { color: var(--esds-soft); background: rgba(110, 90, 150, .10); }
+.esds-preview.esds-blocks-soft { --esds-block-opacity: .13; --esds-block-border-opacity: .48; --esds-block-radius: 12px; }
+.esds-preview.esds-blocks-rich { --esds-block-opacity: .21; --esds-block-border-opacity: .72; --esds-block-radius: 10px; }
+.esds-preview.esds-blocks-outline { --esds-block-opacity: .045; --esds-block-border-opacity: .82; --esds-block-radius: 8px; }
+.esds-preview .esds-demo-callout { background: rgba(var(--esds-callout-rgb), var(--esds-block-opacity, .13)); border-color: rgba(var(--esds-callout-rgb), var(--esds-block-border-opacity, .48)); }
+
+.esds-preview .esds-callout-rule { --esds-callout-rgb: var(--esds-callout-rule); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-example { --esds-callout-rgb: var(--esds-callout-example); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-important { --esds-callout-rgb: var(--esds-callout-important); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-tip { --esds-callout-rgb: var(--esds-callout-tip); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-warning { --esds-callout-rgb: var(--esds-callout-warning); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-question { --esds-callout-rgb: var(--esds-callout-question); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-practice { --esds-callout-rgb: var(--esds-callout-practice); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-success { --esds-callout-rgb: var(--esds-callout-success); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-info { --esds-callout-rgb: var(--esds-callout-info); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-note { --esds-callout-rgb: var(--esds-callout-note); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-quote { --esds-callout-rgb: var(--esds-callout-quote); color: rgb(var(--esds-callout-rgb)); }
+
+.esds-preview .esds-callout-abstract { --esds-callout-rgb: var(--esds-callout-abstract); color: rgb(var(--esds-callout-rgb)); }
+
+
+/* Dark note surfaces keep each palette readable even when Obsidian itself is in light mode. */
+
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-19-rich-midnight,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-19-rich-midnight,
+.esds-preview.candy-pop.bg-19-rich-midnight,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-20-rich-navy,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-20-rich-navy,
+.esds-preview.candy-pop.bg-20-rich-navy,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-21-rich-forest,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-21-rich-forest,
+.esds-preview.candy-pop.bg-21-rich-forest,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-22-rich-emerald,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-22-rich-emerald,
+.esds-preview.candy-pop.bg-22-rich-emerald,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-23-rich-plum,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-23-rich-plum,
+.esds-preview.candy-pop.bg-23-rich-plum,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-24-rich-burgundy,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-24-rich-burgundy,
+.esds-preview.candy-pop.bg-24-rich-burgundy,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-25-rich-cocoa,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-25-rich-cocoa,
+.esds-preview.candy-pop.bg-25-rich-cocoa,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-26-rich-slate,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-26-rich-slate,
+.esds-preview.candy-pop.bg-26-rich-slate,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-29-cobalt-dusk,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-29-cobalt-dusk,
+.esds-preview.candy-pop.bg-29-cobalt-dusk,
+.markdown-preview-view.esds-note.esds-palette-candy-pop.bg-30-deep-lagoon,
+.markdown-source-view.esds-note.esds-palette-candy-pop.bg-30-deep-lagoon,
+.esds-preview.candy-pop.bg-30-deep-lagoon { --esds-en: #8fc1ff; --esds-ipa: #d4a4f2; --esds-translation: #82ddb4; --esds-term: #f0a5d7; --esds-definition: #bdc1d6; --esds-focus: #ff91aa; --esds-secondary: #f2c078; --esds-soft: #d1a2f0; --esds-heading: #d0b3ff; --esds-ink: #f0e8f7; --esds-callout-rule: 112, 166, 255; --esds-callout-example: 194, 146, 235; --esds-callout-important: 255, 137, 169; --esds-callout-tip: 105, 214, 170; --esds-callout-warning: 247, 193, 112; --esds-callout-question: 99, 211, 231; --esds-callout-practice: 255, 164, 112; --esds-callout-success: 103, 219, 163; --esds-callout-info: 133, 171, 255; --esds-callout-note: 185, 177, 215; --esds-callout-quote: 241, 143, 203; --esds-callout-abstract: 185, 149, 239; color: #f0e8f7; }
+
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-19-rich-midnight,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-19-rich-midnight,
+.esds-preview.ocean-breeze.bg-19-rich-midnight,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-20-rich-navy,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-20-rich-navy,
+.esds-preview.ocean-breeze.bg-20-rich-navy,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-21-rich-forest,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-21-rich-forest,
+.esds-preview.ocean-breeze.bg-21-rich-forest,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-22-rich-emerald,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-22-rich-emerald,
+.esds-preview.ocean-breeze.bg-22-rich-emerald,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-23-rich-plum,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-23-rich-plum,
+.esds-preview.ocean-breeze.bg-23-rich-plum,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-24-rich-burgundy,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-24-rich-burgundy,
+.esds-preview.ocean-breeze.bg-24-rich-burgundy,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-25-rich-cocoa,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-25-rich-cocoa,
+.esds-preview.ocean-breeze.bg-25-rich-cocoa,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-26-rich-slate,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-26-rich-slate,
+.esds-preview.ocean-breeze.bg-26-rich-slate,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-29-cobalt-dusk,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-29-cobalt-dusk,
+.esds-preview.ocean-breeze.bg-29-cobalt-dusk,
+.markdown-preview-view.esds-note.esds-palette-ocean-breeze.bg-30-deep-lagoon,
+.markdown-source-view.esds-note.esds-palette-ocean-breeze.bg-30-deep-lagoon,
+.esds-preview.ocean-breeze.bg-30-deep-lagoon { --esds-en: #7bd4ff; --esds-ipa: #c3a7ff; --esds-translation: #75dfbd; --esds-term: #81d5dc; --esds-definition: #b6cbd3; --esds-focus: #ffad80; --esds-secondary: #e4c27d; --esds-soft: #8ec5df; --esds-heading: #8dd8f3; --esds-ink: #e4f3f7; --esds-callout-rule: 105, 204, 241; --esds-callout-example: 186, 157, 244; --esds-callout-important: 255, 160, 126; --esds-callout-tip: 101, 215, 186; --esds-callout-warning: 238, 195, 117; --esds-callout-question: 94, 219, 237; --esds-callout-practice: 255, 169, 119; --esds-callout-success: 100, 219, 177; --esds-callout-info: 118, 186, 239; --esds-callout-note: 167, 201, 214; --esds-callout-quote: 226, 151, 207; --esds-callout-abstract: 175, 157, 232; color: #e4f3f7; }
+
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-19-rich-midnight,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-19-rich-midnight,
+.esds-preview.royal-plum.bg-19-rich-midnight,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-20-rich-navy,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-20-rich-navy,
+.esds-preview.royal-plum.bg-20-rich-navy,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-21-rich-forest,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-21-rich-forest,
+.esds-preview.royal-plum.bg-21-rich-forest,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-22-rich-emerald,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-22-rich-emerald,
+.esds-preview.royal-plum.bg-22-rich-emerald,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-23-rich-plum,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-23-rich-plum,
+.esds-preview.royal-plum.bg-23-rich-plum,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-24-rich-burgundy,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-24-rich-burgundy,
+.esds-preview.royal-plum.bg-24-rich-burgundy,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-25-rich-cocoa,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-25-rich-cocoa,
+.esds-preview.royal-plum.bg-25-rich-cocoa,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-26-rich-slate,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-26-rich-slate,
+.esds-preview.royal-plum.bg-26-rich-slate,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-29-cobalt-dusk,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-29-cobalt-dusk,
+.esds-preview.royal-plum.bg-29-cobalt-dusk,
+.markdown-preview-view.esds-note.esds-palette-royal-plum.bg-30-deep-lagoon,
+.markdown-source-view.esds-note.esds-palette-royal-plum.bg-30-deep-lagoon,
+.esds-preview.royal-plum.bg-30-deep-lagoon { --esds-en: #9bb8ff; --esds-ipa: #e0a5d5; --esds-translation: #8bd9c0; --esds-term: #dc9acb; --esds-definition: #c9bfd2; --esds-focus: #f29bb5; --esds-secondary: #e8c17f; --esds-soft: #c6a4ec; --esds-heading: #c5b4ff; --esds-ink: #f1eaf6; --esds-callout-rule: 139, 164, 242; --esds-callout-example: 221, 148, 218; --esds-callout-important: 245, 143, 174; --esds-callout-tip: 100, 204, 170; --esds-callout-warning: 239, 195, 117; --esds-callout-question: 127, 197, 226; --esds-callout-practice: 241, 158, 125; --esds-callout-success: 104, 212, 171; --esds-callout-info: 138, 166, 232; --esds-callout-note: 190, 173, 207; --esds-callout-quote: 232, 151, 198; --esds-callout-abstract: 190, 155, 232; color: #f1eaf6; }
+
+
+/* Built-in independent 30-background collection. */
+
+/* ==============================================================
+   NOTE BACKGROUNDS 30 — independent Obsidian note background set
+   Add ONE bg-* class to cssclasses. Can be combined with
+   study-note + any study-* palette from English_Study_Design.css.
+   Works in Reading view and Editing view (Live Preview / Source).
+   ============================================================== */
+
+/* Apply only to the note view carrying a bg-* cssclass. */
+.markdown-preview-view.esds-note[class*="bg-"] {
+  background: var(--note-background, var(--background-primary)) !important;
+}
+.markdown-preview-view.esds-note[class*="bg-"] .markdown-preview-sizer {
+  background: transparent !important;
+}
+.markdown-source-view.esds-note[class*="bg-"] {
+  background: var(--note-background, var(--background-primary)) !important;
+}
+.markdown-source-view.esds-note[class*="bg-"] .cm-scroller {
+  background: var(--note-background, var(--background-primary)) !important;
+}
+.markdown-source-view.esds-note[class*="bg-"] .cm-content,
+.markdown-source-view.esds-note[class*="bg-"] .cm-contentContainer,
+.markdown-source-view.esds-note[class*="bg-"] .cm-gutters {
+  background: transparent !important;
+}
+
+/* --------------------------------------------------------------
+   01–10. READING FIRST — low-glare, warm/cool paper-like surfaces
+   -------------------------------------------------------------- */
+
+/* 01. Warm ivory paper — best all-round long-reading choice */
+.markdown-preview-view.esds-note.bg-01-reading-ivory,
+.markdown-source-view.esds-note.bg-01-reading-ivory {
+  --note-background: linear-gradient(145deg, #fbf8f0 0%, #f4efe4 100%);
+}
+
+/* 02. Soft parchment — bookish, gently aged, not yellow */
+.markdown-preview-view.esds-note.bg-02-reading-parchment,
+.markdown-source-view.esds-note.bg-02-reading-parchment {
+  --note-background: linear-gradient(145deg, #f7f0df 0%, #eee4cf 100%);
+}
+
+/* 03. Natural linen — neutral warm grey-beige */
+.markdown-preview-view.esds-note.bg-03-reading-linen,
+.markdown-source-view.esds-note.bg-03-reading-linen {
+  --note-background: linear-gradient(145deg, #f4f1e9 0%, #eae7de 100%);
+}
+
+/* 04. Oat milk — soft creamy neutral */
+.markdown-preview-view.esds-note.bg-04-reading-oatmilk,
+.markdown-source-view.esds-note.bg-04-reading-oatmilk {
+  --note-background: linear-gradient(145deg, #faf5e9 0%, #f1e9d9 100%);
+}
+
+/* 05. Mist grey — clean, modern, low distraction */
+.markdown-preview-view.esds-note.bg-05-reading-mist,
+.markdown-source-view.esds-note.bg-05-reading-mist {
+  --note-background: linear-gradient(145deg, #f4f5f5 0%, #e9edef 100%);
+}
+
+/* 06. Sage mist — muted botanical green */
+.markdown-preview-view.esds-note.bg-06-reading-sage,
+.markdown-source-view.esds-note.bg-06-reading-sage {
+  --note-background: linear-gradient(145deg, #f0f4ed 0%, #e4ecdf 100%);
+}
+
+/* 07. Powder blue — calm cool paper */
+.markdown-preview-view.esds-note.bg-07-reading-powder-blue,
+.markdown-source-view.esds-note.bg-07-reading-powder-blue {
+  --note-background: linear-gradient(145deg, #eff5f8 0%, #e2edf3 100%);
+}
+
+/* 08. Rose cloud — restrained blush, suitable for language notes */
+.markdown-preview-view.esds-note.bg-08-reading-rose-cloud,
+.markdown-source-view.esds-note.bg-08-reading-rose-cloud {
+  --note-background: linear-gradient(145deg, #faf1f1 0%, #f1e5e8 100%);
+}
+
+/* 09. Lavender paper — subtle lilac, not saturated */
+.markdown-preview-view.esds-note.bg-09-reading-lavender,
+.markdown-source-view.esds-note.bg-09-reading-lavender {
+  --note-background: linear-gradient(145deg, #f5f1fa 0%, #ebe6f4 100%);
+}
+
+/* 10. Soft sand — warm mineral neutral */
+.markdown-preview-view.esds-note.bg-10-reading-sand,
+.markdown-source-view.esds-note.bg-10-reading-sand {
+  --note-background: linear-gradient(145deg, #f5f0e7 0%, #eae1d3 100%);
+}
+
+/* --------------------------------------------------------------
+   11–18. MODERN SOFT GRADIENTS — editorial, airy, contemporary
+   -------------------------------------------------------------- */
+
+/* 11. Pearl glow — clean pearl with a hint of cool light */
+.markdown-preview-view.esds-note.bg-11-pearl-glow,
+.markdown-source-view.esds-note.bg-11-pearl-glow {
+  --note-background: radial-gradient(ellipse at 12% 0%, #ffffff 0%, transparent 48%), linear-gradient(135deg, #f3f2ef 0%, #e9edf0 100%);
+}
+
+/* 12. Sea glass — translucent aqua and mint impression */
+.markdown-preview-view.esds-note.bg-12-sea-glass,
+.markdown-source-view.esds-note.bg-12-sea-glass {
+  --note-background: radial-gradient(ellipse at 90% 5%, #e0f3ee 0%, transparent 46%), linear-gradient(135deg, #edf5f2 0%, #e1eeed 100%);
+}
+
+/* 13. Blush silk — muted rose with a warm cream base */
+.markdown-preview-view.esds-note.bg-13-blush-silk,
+.markdown-source-view.esds-note.bg-13-blush-silk {
+  --note-background: radial-gradient(ellipse at 100% 0%, #f7e5e8 0%, transparent 48%), linear-gradient(135deg, #fbf3ef 0%, #f0e7e7 100%);
+}
+
+/* 14. Wisteria haze — refined lavender gradient */
+.markdown-preview-view.esds-note.bg-14-wisteria-haze,
+.markdown-source-view.esds-note.bg-14-wisteria-haze {
+  --note-background: radial-gradient(ellipse at 8% 0%, #ece5fa 0%, transparent 50%), linear-gradient(135deg, #f6f2fa 0%, #e9e8f2 100%);
+}
+
+/* 15. Glacier — cool, bright, crisp */
+.markdown-preview-view.esds-note.bg-15-glacier,
+.markdown-source-view.esds-note.bg-15-glacier {
+  --note-background: radial-gradient(ellipse at 95% 0%, #dceef5 0%, transparent 48%), linear-gradient(135deg, #f0f6f8 0%, #e4edf2 100%);
+}
+
+/* 16. Matcha cream — gentle green with a creamy base */
+.markdown-preview-view.esds-note.bg-16-matcha-cream,
+.markdown-source-view.esds-note.bg-16-matcha-cream {
+  --note-background: radial-gradient(ellipse at 0% 0%, #e7efd9 0%, transparent 48%), linear-gradient(135deg, #f5f5e9 0%, #e9efdf 100%);
+}
+
+/* 17. Apricot haze — warm peach, restrained saturation */
+.markdown-preview-view.esds-note.bg-17-apricot-haze,
+.markdown-source-view.esds-note.bg-17-apricot-haze {
+  --note-background: radial-gradient(ellipse at 100% 0%, #f8e1d0 0%, transparent 46%), linear-gradient(135deg, #fbf2e9 0%, #f2e5da 100%);
+}
+
+/* 18. Blue hour — pale blue-grey editorial background */
+.markdown-preview-view.esds-note.bg-18-blue-hour,
+.markdown-source-view.esds-note.bg-18-blue-hour {
+  --note-background: radial-gradient(ellipse at 0% 0%, #e0eafa 0%, transparent 50%), linear-gradient(135deg, #f1f3f8 0%, #e5eaf2 100%);
+}
+
+/* --------------------------------------------------------------
+   19–26. RICH DARK SURFACES — immersive, elegant, use with care
+   -------------------------------------------------------------- */
+
+/* 19. Midnight ink — deep blue-black */
+.markdown-preview-view.esds-note.bg-19-rich-midnight,
+.markdown-source-view.esds-note.bg-19-rich-midnight {
+  --note-background: linear-gradient(145deg, #172033 0%, #111827 58%, #171b2a 100%);
+}
+
+/* 20. Deep navy — classic inky blue */
+.markdown-preview-view.esds-note.bg-20-rich-navy,
+.markdown-source-view.esds-note.bg-20-rich-navy {
+  --note-background: linear-gradient(145deg, #1d2d45 0%, #172337 100%);
+}
+
+/* 21. Forest night — dark botanical green */
+.markdown-preview-view.esds-note.bg-21-rich-forest,
+.markdown-source-view.esds-note.bg-21-rich-forest {
+  --note-background: linear-gradient(145deg, #1c3028 0%, #17251f 100%);
+}
+
+/* 22. Emerald velvet — rich green with a cool depth */
+.markdown-preview-view.esds-note.bg-22-rich-emerald,
+.markdown-source-view.esds-note.bg-22-rich-emerald {
+  --note-background: radial-gradient(ellipse at 90% 0%, #24463d 0%, transparent 50%), linear-gradient(145deg, #1a302b 0%, #172521 100%);
+}
+
+/* 23. Plum velvet — luxurious muted purple */
+.markdown-preview-view.esds-note.bg-23-rich-plum,
+.markdown-source-view.esds-note.bg-23-rich-plum {
+  --note-background: radial-gradient(ellipse at 0% 0%, #3c2b4b 0%, transparent 48%), linear-gradient(145deg, #2a2135 0%, #211b2b 100%);
+}
+
+/* 24. Burgundy noir — wine-dark, warm, editorial */
+.markdown-preview-view.esds-note.bg-24-rich-burgundy,
+.markdown-source-view.esds-note.bg-24-rich-burgundy {
+  --note-background: radial-gradient(ellipse at 100% 0%, #492934 0%, transparent 48%), linear-gradient(145deg, #30202a 0%, #241b23 100%);
+}
+
+/* 25. Cocoa velvet — warm dark brown */
+.markdown-preview-view.esds-note.bg-25-rich-cocoa,
+.markdown-source-view.esds-note.bg-25-rich-cocoa {
+  --note-background: linear-gradient(145deg, #332a25 0%, #26211e 100%);
+}
+
+/* 26. Slate graphite — modern neutral dark */
+.markdown-preview-view.esds-note.bg-26-rich-slate,
+.markdown-source-view.esds-note.bg-26-rich-slate {
+  --note-background: linear-gradient(145deg, #2b3440 0%, #222831 100%);
+}
+
+/* --------------------------------------------------------------
+   27–30. STATEMENT BACKGROUNDS — distinctive, still text-friendly
+   -------------------------------------------------------------- */
+
+/* 27. Terracotta wash — earthy clay, medium-light */
+.markdown-preview-view.esds-note.bg-27-terracotta-wash,
+.markdown-source-view.esds-note.bg-27-terracotta-wash {
+  --note-background: radial-gradient(ellipse at 100% 0%, #ead0c0 0%, transparent 48%), linear-gradient(145deg, #f4e8df 0%, #eadbd0 100%);
+}
+
+/* 28. Saffron cream — golden warmth without vivid yellow */
+.markdown-preview-view.esds-note.bg-28-saffron-cream,
+.markdown-source-view.esds-note.bg-28-saffron-cream {
+  --note-background: radial-gradient(ellipse at 0% 0%, #f5e6bc 0%, transparent 50%), linear-gradient(145deg, #f8f1dd 0%, #efe5c9 100%);
+}
+
+/* 29. Cobalt dusk — dramatic blue-violet dark */
+.markdown-preview-view.esds-note.bg-29-cobalt-dusk,
+.markdown-source-view.esds-note.bg-29-cobalt-dusk {
+  --note-background: radial-gradient(ellipse at 85% 0%, #303b70 0%, transparent 52%), linear-gradient(145deg, #202b4c 0%, #1a203a 100%);
+}
+
+/* 30. Deep lagoon — saturated blue-green dark */
+.markdown-preview-view.esds-note.bg-30-deep-lagoon,
+.markdown-source-view.esds-note.bg-30-deep-lagoon {
+  --note-background: radial-gradient(ellipse at 0% 0%, #245452 0%, transparent 50%), linear-gradient(145deg, #193b3d 0%, #142c33 100%);
+}
+
+/* ---------- Dark-theme alternatives for the light backgrounds ---------- */
+body.theme-dark .markdown-preview-view.esds-note.bg-01-reading-ivory,
+body.theme-dark .markdown-source-view.esds-note.bg-01-reading-ivory { --note-background: linear-gradient(145deg, #292720 0%, #24221e 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-02-reading-parchment,
+body.theme-dark .markdown-source-view.esds-note.bg-02-reading-parchment { --note-background: linear-gradient(145deg, #30291f 0%, #28231d 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-03-reading-linen,
+body.theme-dark .markdown-source-view.esds-note.bg-03-reading-linen { --note-background: linear-gradient(145deg, #292925 0%, #232522 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-04-reading-oatmilk,
+body.theme-dark .markdown-source-view.esds-note.bg-04-reading-oatmilk { --note-background: linear-gradient(145deg, #302a20 0%, #29231d 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-05-reading-mist,
+body.theme-dark .markdown-source-view.esds-note.bg-05-reading-mist { --note-background: linear-gradient(145deg, #292e32 0%, #22282d 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-06-reading-sage,
+body.theme-dark .markdown-source-view.esds-note.bg-06-reading-sage { --note-background: linear-gradient(145deg, #253029 0%, #202922 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-07-reading-powder-blue,
+body.theme-dark .markdown-source-view.esds-note.bg-07-reading-powder-blue { --note-background: linear-gradient(145deg, #26313a 0%, #202a33 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-08-reading-rose-cloud,
+body.theme-dark .markdown-source-view.esds-note.bg-08-reading-rose-cloud { --note-background: linear-gradient(145deg, #33282b 0%, #2a2227 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-09-reading-lavender,
+body.theme-dark .markdown-source-view.esds-note.bg-09-reading-lavender { --note-background: linear-gradient(145deg, #302b39 0%, #282431 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-10-reading-sand,
+body.theme-dark .markdown-source-view.esds-note.bg-10-reading-sand { --note-background: linear-gradient(145deg, #302b23 0%, #28231e 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-11-pearl-glow,
+body.theme-dark .markdown-source-view.esds-note.bg-11-pearl-glow { --note-background: linear-gradient(145deg, #2b2d30 0%, #242a30 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-12-sea-glass,
+body.theme-dark .markdown-source-view.esds-note.bg-12-sea-glass { --note-background: linear-gradient(145deg, #243332 0%, #202c2d 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-13-blush-silk,
+body.theme-dark .markdown-source-view.esds-note.bg-13-blush-silk { --note-background: linear-gradient(145deg, #33282a 0%, #2b2328 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-14-wisteria-haze,
+body.theme-dark .markdown-source-view.esds-note.bg-14-wisteria-haze { --note-background: linear-gradient(145deg, #302b39 0%, #282431 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-15-glacier,
+body.theme-dark .markdown-source-view.esds-note.bg-15-glacier { --note-background: linear-gradient(145deg, #253139 0%, #202a31 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-16-matcha-cream,
+body.theme-dark .markdown-source-view.esds-note.bg-16-matcha-cream { --note-background: linear-gradient(145deg, #2b3023 0%, #242a20 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-17-apricot-haze,
+body.theme-dark .markdown-source-view.esds-note.bg-17-apricot-haze { --note-background: linear-gradient(145deg, #352a25 0%, #2c2421 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-18-blue-hour,
+body.theme-dark .markdown-source-view.esds-note.bg-18-blue-hour { --note-background: linear-gradient(145deg, #292e3b 0%, #232936 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-27-terracotta-wash,
+body.theme-dark .markdown-source-view.esds-note.bg-27-terracotta-wash { --note-background: linear-gradient(145deg, #352923 0%, #2b231f 100%); }
+body.theme-dark .markdown-preview-view.esds-note.bg-28-saffron-cream,
+body.theme-dark .markdown-source-view.esds-note.bg-28-saffron-cream { --note-background: linear-gradient(145deg, #352f20 0%, #2b271e 100%); }
+
+/* Dark-surface contrast: explicit foreground colors work in BOTH app themes. */
+.markdown-preview-view.esds-note.bg-19-rich-midnight,
+.markdown-source-view.esds-note.bg-19-rich-midnight,
+.markdown-preview-view.esds-note.bg-20-rich-navy,
+.markdown-source-view.esds-note.bg-20-rich-navy,
+.markdown-preview-view.esds-note.bg-21-rich-forest,
+.markdown-source-view.esds-note.bg-21-rich-forest,
+.markdown-preview-view.esds-note.bg-22-rich-emerald,
+.markdown-source-view.esds-note.bg-22-rich-emerald,
+.markdown-preview-view.esds-note.bg-23-rich-plum,
+.markdown-source-view.esds-note.bg-23-rich-plum,
+.markdown-preview-view.esds-note.bg-24-rich-burgundy,
+.markdown-source-view.esds-note.bg-24-rich-burgundy,
+.markdown-preview-view.esds-note.bg-25-rich-cocoa,
+.markdown-source-view.esds-note.bg-25-rich-cocoa,
+.markdown-preview-view.esds-note.bg-26-rich-slate,
+.markdown-source-view.esds-note.bg-26-rich-slate,
+.markdown-preview-view.esds-note.bg-29-cobalt-dusk,
+.markdown-source-view.esds-note.bg-29-cobalt-dusk,
+.markdown-preview-view.esds-note.bg-30-deep-lagoon,
+.markdown-source-view.esds-note.bg-30-deep-lagoon {
+  color: #e8eaf0 !important;
+  --text-normal: #e8eaf0;
+  --text-muted: #bac3d0;
+  --text-faint: #929eae;
+  --study-en: #70ded4;
+  --study-ipa: #c7a7ff;
+  --study-translation: #ffb18f;
+  --study-term: #91bdff;
+  --study-definition: #a6dfb2;
+  --study-heading: #e1d5ff;
+}
+
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) .markdown-preview-sizer,
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) p,
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) li,
+.markdown-source-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) .cm-line {
+  color: #e8eaf0 !important;
+}
+
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) h1,
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) h2,
+.markdown-preview-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) h3,
+.markdown-source-view.esds-note:is(.bg-19-rich-midnight, .bg-20-rich-navy, .bg-21-rich-forest, .bg-22-rich-emerald, .bg-23-rich-plum, .bg-24-rich-burgundy, .bg-25-rich-cocoa, .bg-26-rich-slate, .bg-29-cobalt-dusk, .bg-30-deep-lagoon) .cm-header {
+  color: #e1d5ff !important;
+}
+
+
+/* The modal preview uses the exact same background gradients as the note. */
+
+.esds-preview[class*="bg-"] { background: var(--note-background) !important; }
+
+.esds-preview.bg-01-reading-ivory { --note-background: linear-gradient(145deg, #fbf8f0 0%, #f4efe4 100%); }
+
+.esds-preview.bg-02-reading-parchment { --note-background: linear-gradient(145deg, #f7f0df 0%, #eee4cf 100%); }
+
+.esds-preview.bg-03-reading-linen { --note-background: linear-gradient(145deg, #f4f1e9 0%, #eae7de 100%); }
+
+.esds-preview.bg-04-reading-oatmilk { --note-background: linear-gradient(145deg, #faf5e9 0%, #f1e9d9 100%); }
+
+.esds-preview.bg-05-reading-mist { --note-background: linear-gradient(145deg, #f4f5f5 0%, #e9edef 100%); }
+
+.esds-preview.bg-06-reading-sage { --note-background: linear-gradient(145deg, #f0f4ed 0%, #e4ecdf 100%); }
+
+.esds-preview.bg-07-reading-powder-blue { --note-background: linear-gradient(145deg, #eff5f8 0%, #e2edf3 100%); }
+
+.esds-preview.bg-08-reading-rose-cloud { --note-background: linear-gradient(145deg, #faf1f1 0%, #f1e5e8 100%); }
+
+.esds-preview.bg-09-reading-lavender { --note-background: linear-gradient(145deg, #f5f1fa 0%, #ebe6f4 100%); }
+
+.esds-preview.bg-10-reading-sand { --note-background: linear-gradient(145deg, #f5f0e7 0%, #eae1d3 100%); }
+
+.esds-preview.bg-11-pearl-glow { --note-background: radial-gradient(ellipse at 12% 0%, #ffffff 0%, transparent 48%), linear-gradient(135deg, #f3f2ef 0%, #e9edf0 100%); }
+
+.esds-preview.bg-12-sea-glass { --note-background: radial-gradient(ellipse at 90% 5%, #e0f3ee 0%, transparent 46%), linear-gradient(135deg, #edf5f2 0%, #e1eeed 100%); }
+
+.esds-preview.bg-13-blush-silk { --note-background: radial-gradient(ellipse at 100% 0%, #f7e5e8 0%, transparent 48%), linear-gradient(135deg, #fbf3ef 0%, #f0e7e7 100%); }
+
+.esds-preview.bg-14-wisteria-haze { --note-background: radial-gradient(ellipse at 8% 0%, #ece5fa 0%, transparent 50%), linear-gradient(135deg, #f6f2fa 0%, #e9e8f2 100%); }
+
+.esds-preview.bg-15-glacier { --note-background: radial-gradient(ellipse at 95% 0%, #dceef5 0%, transparent 48%), linear-gradient(135deg, #f0f6f8 0%, #e4edf2 100%); }
+
+.esds-preview.bg-16-matcha-cream { --note-background: radial-gradient(ellipse at 0% 0%, #e7efd9 0%, transparent 48%), linear-gradient(135deg, #f5f5e9 0%, #e9efdf 100%); }
+
+.esds-preview.bg-17-apricot-haze { --note-background: radial-gradient(ellipse at 100% 0%, #f8e1d0 0%, transparent 46%), linear-gradient(135deg, #fbf2e9 0%, #f2e5da 100%); }
+
+.esds-preview.bg-18-blue-hour { --note-background: radial-gradient(ellipse at 0% 0%, #e0eafa 0%, transparent 50%), linear-gradient(135deg, #f1f3f8 0%, #e5eaf2 100%); }
+
+.esds-preview.bg-19-rich-midnight { --note-background: linear-gradient(145deg, #172033 0%, #111827 58%, #171b2a 100%); }
+
+.esds-preview.bg-20-rich-navy { --note-background: linear-gradient(145deg, #1d2d45 0%, #172337 100%); }
+
+.esds-preview.bg-21-rich-forest { --note-background: linear-gradient(145deg, #1c3028 0%, #17251f 100%); }
+
+.esds-preview.bg-22-rich-emerald { --note-background: radial-gradient(ellipse at 90% 0%, #24463d 0%, transparent 50%), linear-gradient(145deg, #1a302b 0%, #172521 100%); }
+
+.esds-preview.bg-23-rich-plum { --note-background: radial-gradient(ellipse at 0% 0%, #3c2b4b 0%, transparent 48%), linear-gradient(145deg, #2a2135 0%, #211b2b 100%); }
+
+.esds-preview.bg-24-rich-burgundy { --note-background: radial-gradient(ellipse at 100% 0%, #492934 0%, transparent 48%), linear-gradient(145deg, #30202a 0%, #241b23 100%); }
+
+.esds-preview.bg-25-rich-cocoa { --note-background: linear-gradient(145deg, #332a25 0%, #26211e 100%); }
+
+.esds-preview.bg-26-rich-slate { --note-background: linear-gradient(145deg, #2b3440 0%, #222831 100%); }
+
+.esds-preview.bg-27-terracotta-wash { --note-background: radial-gradient(ellipse at 100% 0%, #ead0c0 0%, transparent 48%), linear-gradient(145deg, #f4e8df 0%, #eadbd0 100%); }
+
+.esds-preview.bg-28-saffron-cream { --note-background: radial-gradient(ellipse at 0% 0%, #f5e6bc 0%, transparent 50%), linear-gradient(145deg, #f8f1dd 0%, #efe5c9 100%); }
+
+.esds-preview.bg-29-cobalt-dusk { --note-background: radial-gradient(ellipse at 85% 0%, #303b70 0%, transparent 52%), linear-gradient(145deg, #202b4c 0%, #1a203a 100%); }
+
+.esds-preview.bg-30-deep-lagoon { --note-background: radial-gradient(ellipse at 0% 0%, #245452 0%, transparent 50%), linear-gradient(145deg, #193b3d 0%, #142c33 100%); }
+
+body.theme-dark .esds-preview.bg-01-reading-ivory { --note-background: linear-gradient(145deg, #292720 0%, #24221e 100%); }
+
+body.theme-dark .esds-preview.bg-02-reading-parchment { --note-background: linear-gradient(145deg, #30291f 0%, #28231d 100%); }
+
+body.theme-dark .esds-preview.bg-03-reading-linen { --note-background: linear-gradient(145deg, #292925 0%, #232522 100%); }
+
+body.theme-dark .esds-preview.bg-04-reading-oatmilk { --note-background: linear-gradient(145deg, #302a20 0%, #29231d 100%); }
+
+body.theme-dark .esds-preview.bg-05-reading-mist { --note-background: linear-gradient(145deg, #292e32 0%, #22282d 100%); }
+
+body.theme-dark .esds-preview.bg-06-reading-sage { --note-background: linear-gradient(145deg, #253029 0%, #202922 100%); }
+
+body.theme-dark .esds-preview.bg-07-reading-powder-blue { --note-background: linear-gradient(145deg, #26313a 0%, #202a33 100%); }
+
+body.theme-dark .esds-preview.bg-08-reading-rose-cloud { --note-background: linear-gradient(145deg, #33282b 0%, #2a2227 100%); }
+
+body.theme-dark .esds-preview.bg-09-reading-lavender { --note-background: linear-gradient(145deg, #302b39 0%, #282431 100%); }
+
+body.theme-dark .esds-preview.bg-10-reading-sand { --note-background: linear-gradient(145deg, #302b23 0%, #28231e 100%); }
+
+body.theme-dark .esds-preview.bg-11-pearl-glow { --note-background: linear-gradient(145deg, #2b2d30 0%, #242a30 100%); }
+
+body.theme-dark .esds-preview.bg-12-sea-glass { --note-background: linear-gradient(145deg, #243332 0%, #202c2d 100%); }
+
+body.theme-dark .esds-preview.bg-13-blush-silk { --note-background: linear-gradient(145deg, #33282a 0%, #2b2328 100%); }
+
+body.theme-dark .esds-preview.bg-14-wisteria-haze { --note-background: linear-gradient(145deg, #302b39 0%, #282431 100%); }
+
+body.theme-dark .esds-preview.bg-15-glacier { --note-background: linear-gradient(145deg, #253139 0%, #202a31 100%); }
+
+body.theme-dark .esds-preview.bg-16-matcha-cream { --note-background: linear-gradient(145deg, #2b3023 0%, #242a20 100%); }
+
+body.theme-dark .esds-preview.bg-17-apricot-haze { --note-background: linear-gradient(145deg, #352a25 0%, #2c2421 100%); }
+
+body.theme-dark .esds-preview.bg-18-blue-hour { --note-background: linear-gradient(145deg, #292e3b 0%, #232936 100%); }
+
+body.theme-dark .esds-preview.bg-27-terracotta-wash { --note-background: linear-gradient(145deg, #352923 0%, #2b231f 100%); }
+
+body.theme-dark .esds-preview.bg-28-saffron-cream { --note-background: linear-gradient(145deg, #352f20 0%, #2b271e 100%); }
+
+
+@media (max-width: 700px) {
+  .esds-layout { display: flex; flex-direction: column; }
+  .esds-palette-list { border-right: 0; border-bottom: 1px solid var(--background-modifier-border); padding: 12px 14px; }
+  .esds-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-palette-card { min-height: 74px; }
+  .esds-main { padding: 13px 14px 16px; }
+  .esds-options-grid { grid-template-columns: 1fr; }
+  .esds-example-grid { grid-template-columns: 1fr; }
+  .esds-preview { max-height: 48vh; }
+  .esds-actions { flex-direction: column; }
+  .esds-button { width: 100%; min-height: 44px; }
+}
+
+/* User-created backgrounds use the same bg-* hook as built-ins. */
+.markdown-preview-view.esds-note[class*="bg-custom-"], .markdown-source-view.esds-note[class*="bg-custom-"] { background:var(--note-background,var(--background-primary)) !important; }
+.markdown-preview-view.esds-note[class*="bg-custom-"] .markdown-preview-sizer { background:transparent !important; }
+.markdown-source-view.esds-note[class*="bg-custom-"] .cm-scroller { background:var(--note-background,var(--background-primary)) !important; }
+.markdown-source-view.esds-note[class*="bg-custom-"] .cm-content, .markdown-source-view.esds-note[class*="bg-custom-"] .cm-contentContainer, .markdown-source-view.esds-note[class*="bg-custom-"] .cm-gutters { background:transparent !important; }
+.esds-preview[class*="bg-custom-"] { background:var(--note-background) !important; }
+.esds-preview .esds-en { color:var(--esds-en); font-weight:700; }
+.esds-preview .esds-ipa { color:var(--esds-ipa); font-style:italic; }
+.esds-preview .esds-translation { color:var(--esds-translation); }
+.esds-preview .esds-term { color:var(--esds-term); font-weight:650; }
+.esds-preview .esds-definition { color:var(--esds-definition); }
+.esds-preview h1,.esds-preview h2 { color:var(--esds-heading); }
+.esds-preview .esds-focus { color:var(--esds-focus); background:rgba(128,80,120,.10); }
+.esds-preview .esds-focus-secondary { color:var(--esds-secondary); background:rgba(128,100,50,.10); }
+.esds-preview .esds-focus-soft { color:var(--esds-soft); background:rgba(110,90,150,.10); }
+@media (max-width:700px) {
+  .esds-main-modal,.esds-preview-modal,.esds-builder-modal { width:96vw; max-width:96vw; }
+  .esds-main-content,.esds-preview-modal-content,.esds-builder-content { max-height:90dvh; }
+  .esds-palette-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .esds-background-grid { grid-template-columns:repeat(2,minmax(0,1fr)); max-height:44vh; }
+  .esds-bg-thumb { height:88px; }
+  .esds-block-grid { grid-template-columns:1fr; }
+  .esds-block-card { flex-direction:row; align-items:center; }
+  .esds-block-demo { width:42%; min-height:54px; flex-shrink:0; }
+  .esds-example-grid { grid-template-columns:1fr; }
+  .esds-quick-actions .esds-button { flex:1 1 45%; }
+  .esds-main-footer { flex-direction:column; }
+  .esds-main-footer .esds-button { width:100%; }
+  .esds-preview-actions { flex-direction:column; }
+  .esds-preview-actions .esds-button { width:100%; min-height:44px; }
+  .esds-color-grid { grid-template-columns:1fr; }
+}
+
+/* 0.4.0 — vivid mobile-first visual system */
+.esds-main-modal { width:min(780px,96vw); max-width:96vw; }
+.esds-main-content, .esds-preview-modal-content, .esds-builder-content {
+  background:var(--background-primary);
+  color:var(--text-normal);
+  scrollbar-gutter:stable;
+}
+.esds-header {
+  align-items:center;
+  padding:17px 18px 15px;
+  background:linear-gradient(115deg,rgba(124,58,237,.14),rgba(14,165,233,.10) 56%,rgba(20,184,166,.10)),var(--background-primary);
+  border-bottom:1px solid var(--background-modifier-border);
+}
+.esds-hero-header {
+  position:relative;
+  overflow:hidden;
+  padding:21px 18px 18px;
+  border-bottom:0;
+}
+.esds-hero-header::after {
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:3px;
+  background:linear-gradient(90deg,#8b5cf6 0%,#06b6d4 48%,#22c55e 100%);
+}
+.esds-eyebrow {
+  display:block;
+  margin:0 0 5px;
+  color:var(--interactive-accent);
+  font-size:.61rem;
+  font-weight:800;
+  letter-spacing:.16em;
+}
+.esds-hero-header .esds-heading-wrap h2 { font-size:1.22rem; letter-spacing:-.025em; }
+.esds-hero-header .esds-heading-wrap p { max-width:36rem; line-height:1.45; }
+.esds-close-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 38px;
+  width:38px;
+  height:38px;
+  min-width:38px;
+  border:1px solid var(--background-modifier-border);
+  border-radius:12px;
+  background:var(--background-primary);
+  color:var(--text-muted);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  font-size:1.45rem;
+  line-height:1;
+}
+.esds-close-button:hover { background:var(--background-modifier-hover); color:var(--text-normal); }
+.esds-current-summary.esds-summary-card {
+  margin:13px 15px 4px;
+  padding:12px 14px;
+  border:1px solid var(--background-modifier-border);
+  border-left:4px solid #8b5cf6;
+  border-radius:13px;
+  background:linear-gradient(110deg,rgba(139,92,246,.09),rgba(6,182,212,.055)),var(--background-secondary);
+  box-shadow:0 3px 12px rgba(30,25,55,.045);
+}
+.esds-summary-card > span { font-weight:750; }
+.esds-summary-card small { line-height:1.4; }
+.esds-quick-actions { padding-top:10px; }
+.esds-library-shortcuts { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.esds-accordion {
+  border-radius:15px;
+  border-color:var(--background-modifier-border);
+  box-shadow:0 2px 9px rgba(25,30,45,.035);
+}
+.esds-accordion-trigger {
+  min-height:62px;
+  padding:10px 13px;
+  border-radius:14px;
+  transition:background-color .16s ease,border-color .16s ease;
+}
+.esds-accordion.is-open .esds-accordion-trigger {
+  background:linear-gradient(100deg,rgba(139,92,246,.12),rgba(6,182,212,.07)),var(--background-primary-alt);
+}
+.esds-accordion-icon {
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:linear-gradient(145deg,rgba(139,92,246,.19),rgba(6,182,212,.15));
+  color:var(--text-normal);
+  font-weight:750;
+}
+.esds-accordion.is-open .esds-accordion-icon { box-shadow:inset 0 0 0 1px rgba(139,92,246,.24); }
+.esds-accordion-labels strong { font-size:.91rem; }
+.esds-accordion-labels small { line-height:1.35; white-space:normal; }
+.esds-accordion-body { padding:13px; }
+.esds-palette-card, .esds-bg-card, .esds-block-card {
+  position:relative;
+  border-radius:14px;
+  border-color:var(--background-modifier-border);
+  transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;
+}
+.esds-palette-card { min-height:116px; padding:12px; background:var(--background-secondary); }
+.esds-palette-card strong { font-size:.88rem; line-height:1.25; padding-right:18px; overflow-wrap:anywhere; }
+.esds-palette-card small { font-size:.72rem; line-height:1.4; white-space:normal; overflow-wrap:anywhere; }
+.esds-palette-card.is-selected, .esds-bg-card.is-selected, .esds-block-card.is-selected {
+  border:2px solid var(--interactive-accent);
+  box-shadow:0 0 0 2px rgba(139,92,246,.13),0 5px 16px rgba(90,70,150,.10);
+}
+.esds-card-check {
+  position:absolute;
+  top:7px;
+  right:7px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:23px;
+  height:23px;
+  border:2px solid var(--background-primary);
+  border-radius:50%;
+  background:linear-gradient(135deg,#16a34a,#0d9488);
+  color:#fff;
+  font-size:.76rem;
+  font-weight:900;
+  box-shadow:0 2px 7px rgba(0,0,0,.2);
+}
+.esds-card-status { margin-top:auto; padding-top:2px; }
+.esds-swatches { min-height:20px; padding-right:18px; }
+.esds-swatch { width:20px; height:20px; border:2px solid var(--background-primary); box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.esds-background-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-auto-rows:1fr;
+  align-items:stretch;
+  max-height:none !important;
+  overflow:visible !important;
+  gap:11px;
+}
+.esds-bg-card {
+  display:flex;
+  flex-direction:column;
+  min-height:160px;
+  background:var(--background-secondary);
+}
+.esds-bg-thumb { height:104px; flex:0 0 104px; }
+.esds-bg-card > span { flex:1 0 auto; padding:8px 9px 3px; font-size:.76rem; line-height:1.35; white-space:normal; overflow-wrap:anywhere; }
+.esds-bg-card > small { padding:2px 9px 9px; font-size:.66rem; line-height:1.3; white-space:normal; overflow-wrap:anywhere; }
+.esds-bg-check { top:8px; right:8px; }
+.esds-block-card { padding:10px; gap:8px; background:var(--background-secondary); }
+.esds-block-card > strong { font-size:.8rem; padding-right:22px; }
+.esds-block-card > small { font-size:.7rem; line-height:1.4; white-space:normal; overflow-wrap:anywhere; }
+.esds-block-demo { border-radius:11px; }
+.esds-block-check { top:7px; right:7px; }
+.esds-inline-actions, .esds-library-actions { align-items:stretch; gap:8px; }
+.esds-inline-actions > .esds-button, .esds-library-actions > .esds-button { flex:1 1 145px; }
+.esds-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:0;
+  min-height:42px;
+  padding:9px 13px;
+  border:1px solid var(--background-modifier-border);
+  border-radius:12px;
+  background:var(--background-secondary);
+  color:var(--text-normal);
+  font-size:.81rem;
+  font-weight:700;
+  line-height:1.28;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  box-shadow:0 2px 5px rgba(20,25,40,.045);
+  transition:filter .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+.esds-button:hover { filter:brightness(1.045); box-shadow:0 4px 11px rgba(20,25,40,.12); }
+.esds-button:active { transform:translateY(1px) scale(.99); filter:brightness(.96); }
+.esds-button:focus-visible, .esds-accordion-trigger:focus-visible, .esds-palette-card:focus-visible, .esds-bg-card:focus-visible, .esds-block-card:focus-visible {
+  outline:2px solid var(--interactive-accent);
+  outline-offset:3px;
+}
+.esds-button:disabled { opacity:.46; filter:saturate(.5); box-shadow:none; }
+.esds-button.esds-btn-violet, .esds-button.esds-primary.esds-btn-violet {
+  color:#fff !important;
+  border-color:#7542df;
+  background:linear-gradient(135deg,#7c3aed 0%,#6543d6 52%,#4f46e5 100%);
+  box-shadow:0 4px 12px rgba(109,64,214,.24);
+}
+.esds-button.esds-btn-teal, .esds-button.esds-primary.esds-btn-teal {
+  color:#fff !important;
+  border-color:#0e9b91;
+  background:linear-gradient(135deg,#0d9488 0%,#0ea5a5 52%,#0891b2 100%);
+  box-shadow:0 4px 12px rgba(13,148,136,.21);
+}
+.esds-button.esds-btn-cyan {
+  color:#fff !important;
+  border-color:#0284c7;
+  background:linear-gradient(135deg,#0284c7 0%,#0e9fbd 100%);
+  box-shadow:0 3px 10px rgba(2,132,199,.18);
+}
+.esds-button.esds-btn-coral {
+  color:#fff !important;
+  border-color:#e44f72;
+  background:linear-gradient(135deg,#f05b83 0%,#df4777 100%);
+  box-shadow:0 3px 10px rgba(225,71,119,.18);
+}
+.esds-button.esds-btn-amber {
+  color:#34240a !important;
+  border-color:#e4a11a;
+  background:linear-gradient(135deg,#facc15 0%,#f59e0b 100%);
+  box-shadow:0 3px 10px rgba(217,145,15,.19);
+}
+.esds-button.esds-btn-lime {
+  color:#14351e !important;
+  border-color:#65a30d;
+  background:linear-gradient(135deg,#a3e635 0%,#4ade80 100%);
+}
+.esds-button.esds-btn-quiet {
+  color:var(--text-normal);
+  border-color:var(--background-modifier-border);
+  background:var(--background-secondary);
+  box-shadow:none;
+}
+.esds-button.esds-btn-outline-coral {
+  color:#e45a77 !important;
+  border-color:rgba(228,80,115,.48);
+  background:rgba(228,80,115,.07);
+  box-shadow:none;
+}
+.esds-button.esds-danger { color:#df5571 !important; }
+.esds-main-footer {
+  gap:9px;
+  padding:12px 15px max(13px,env(safe-area-inset-bottom));
+  border-top:1px solid var(--background-modifier-border);
+  background:var(--background-primary);
+  backdrop-filter:blur(12px);
+}
+.esds-main-footer .esds-main-cta { flex:2 1 230px; min-height:48px; font-size:.86rem; }
+.esds-main-footer .esds-btn-outline-coral { flex:1 1 150px; }
+.esds-preview { max-height:none; overflow:visible; margin:13px; border-radius:15px; }
+.esds-preview-modal-header { position:sticky; top:0; z-index:2; }
+.esds-preview-actions { padding:0 13px 3px; }
+.esds-preview-actions > .esds-button { flex:1 1 120px; min-height:44px; }
+.esds-footnote { padding:0 2px 4px; }
+.esds-text-input { min-width:0; border-radius:11px; }
+.esds-bg-filter { white-space:normal; }
+.esds-library-row { align-items:stretch; }
+.esds-library-item { min-width:0; white-space:normal; overflow-wrap:anywhere; border-radius:10px; }
+.esds-advanced-tools { padding:11px; border:1px dashed var(--background-modifier-border); border-radius:12px; background:var(--background-secondary); }
+.esds-advanced-tools h4 { margin-bottom:8px; }
+.esds-builder-body { padding:16px; }
+.esds-color-field { min-width:0; border-radius:11px; }
+.esds-custom-bg-preview { min-height:105px; border-radius:13px; margin-top:12px; }
+
+@media (max-width:700px) {
+  .esds-main-modal,.esds-preview-modal,.esds-builder-modal { width:96vw; max-width:96vw; }
+  .esds-main-content,.esds-preview-modal-content,.esds-builder-content { max-height:90dvh; overflow-y:auto; overscroll-behavior:contain; }
+  .esds-header { padding:15px 14px 13px; }
+  .esds-hero-header { padding:18px 14px 16px; }
+  .esds-hero-header .esds-heading-wrap h2 { font-size:1.08rem; }
+  .esds-current-summary.esds-summary-card { margin:11px 12px 3px; }
+  .esds-quick-actions { padding-left:13px; padding-right:13px; }
+  .esds-library-shortcuts { grid-template-columns:repeat(2,minmax(0,1fr)); padding-left:13px; padding-right:13px; }
+  .esds-library-shortcuts .esds-button { min-height:46px; }
+  .esds-accordion { margin:0 9px 10px; }
+  .esds-accordion-body { padding:11px; }
+  .esds-palette-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .esds-palette-card { min-height:120px; }
+  .esds-background-grid { grid-template-columns:repeat(2,minmax(0,1fr)); max-height:none !important; overflow:visible !important; gap:9px; }
+  .esds-bg-thumb { height:96px; flex-basis:96px; }
+  .esds-bg-card { min-height:151px; }
+  .esds-block-grid { grid-template-columns:1fr; }
+  .esds-block-card { display:grid; grid-template-columns:minmax(0,1fr); padding:10px; }
+  .esds-block-demo { width:100%; min-height:58px; }
+  .esds-button { min-height:44px; }
+  .esds-inline-actions > .esds-button, .esds-library-actions > .esds-button { flex:1 1 100%; width:100%; }
+  .esds-main-footer { flex-direction:column; }
+  .esds-main-footer .esds-button { width:100%; }
+  .esds-main-footer .esds-main-cta { flex:auto; }
+  .esds-main-footer .esds-btn-outline-coral { flex:auto; }
+  .esds-preview-actions { flex-direction:column; }
+  .esds-preview-actions .esds-button { width:100%; min-height:46px; }
+  .esds-color-grid { grid-template-columns:1fr; }
+  .esds-bg-search, .esds-bg-filter { min-height:44px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .esds-button,.esds-palette-card,.esds-bg-card,.esds-block-card,.esds-accordion-trigger { transition:none !important; }
+}
+
+.esds-bg-thumb.esds-preview { margin:0 !important; border:0; border-radius:0; overflow:hidden; }
+
+/* ==============================================================
+   0.5.0 — navigation, mobile layout and no-scroll preview
+   Keep the vivid button colours from 0.4.0.
+   ============================================================== */
+
+/* Main studio: one scrollable content area and a separate footer. */
+.esds-main-modal {
+  width: min(780px, 96vw);
+  max-width: 96vw;
+  max-height: 92dvh;
+  overflow: hidden;
+}
+.esds-main-modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 90dvh;
+  max-height: 90dvh;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+}
+.esds-main-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 90dvh;
+  overflow: hidden;
+  padding: 0;
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+.esds-main-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+.esds-main-content > .esds-main-footer {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+.esds-hero-header { padding-right: 58px; }
+.esds-main-modal .modal-close-button,
+.esds-preview-modal .modal-close-button,
+.esds-builder-modal .modal-close-button {
+  z-index: 20;
+  top: 9px;
+  right: 9px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 12px;
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+}
+
+/* Live sample on the main screen. */
+.esds-mini-preview-wrap { margin: 8px 13px 10px; }
+.esds-mini-preview-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 2px 6px;
+}
+.esds-mini-preview-label strong { font-size: .78rem; }
+.esds-mini-preview-label small { color: var(--text-muted); font-size: .66rem; }
+.esds-mini-preview.esds-preview {
+  display: block;
+  margin: 0;
+  max-height: none;
+  min-height: 0;
+  padding: 0;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.esds-mini-preview-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+  padding: 10px 12px;
+  line-height: 1.3;
+}
+.esds-mini-preview-content > strong { color: var(--esds-heading); font-size: .88rem; }
+.esds-mini-preview-content > span,
+.esds-mini-preview-content > small { font-size: .74rem; overflow-wrap: anywhere; }
+.esds-library-shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.esds-library-shortcuts .esds-button { min-height: 43px; padding: 8px 9px; font-size: .75rem; }
+
+/* Dedicated drill-down screens for Favorites, Recent and Library. */
+.esds-subview-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 14px 58px 13px 14px;
+  background: var(--background-primary);
+}
+.esds-subview-header .esds-back-button { flex: 0 0 auto; min-height: 38px; padding: 7px 10px; }
+.esds-subview-header .esds-heading-wrap { flex: 1 1 auto; min-width: 0; }
+.esds-subview-header .esds-heading-wrap h2 { font-size: 1.02rem; }
+.esds-subview-header .esds-heading-wrap p { font-size: .7rem; line-height: 1.3; }
+.esds-combo-list { display: flex; flex-direction: column; gap: 9px; padding: 13px; }
+.esds-combo-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 13px;
+  background: var(--background-secondary);
+}
+.esds-combo-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.esds-combo-info strong { font-size: .82rem; line-height: 1.3; overflow-wrap: anywhere; }
+.esds-combo-info small { color: var(--text-muted); font-size: .68rem; line-height: 1.35; overflow-wrap: anywhere; }
+.esds-combo-actions { display: flex; flex: 0 0 auto; flex-direction: column; gap: 6px; }
+.esds-combo-actions .esds-button { min-height: 34px; padding: 6px 9px; font-size: .68rem; }
+.esds-empty-panel {
+  margin: 14px;
+  padding: 18px 15px;
+  border: 1px dashed var(--background-modifier-border);
+  border-radius: 14px;
+  background: var(--background-secondary);
+}
+.esds-empty-panel strong { display: block; margin-bottom: 5px; font-size: .85rem; }
+.esds-empty-panel p { margin: 0; color: var(--text-muted); font-size: .75rem; line-height: 1.45; }
+.esds-library-section { margin: 14px 13px 18px; }
+.esds-library-section h3 { margin: 0 0 9px; font-size: .9rem; }
+.esds-library-tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.esds-library-tool-grid .esds-button { width: 100%; min-width: 0; min-height: 42px; }
+.esds-user-background-list { display: flex; flex-direction: column; gap: 7px; }
+.esds-user-background-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 7px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 11px;
+  background: var(--background-secondary);
+}
+.esds-user-background-swatch { width: 44px; height: 38px; flex: 0 0 44px; border-radius: 8px; border: 1px solid var(--background-modifier-border); }
+.esds-user-background-row strong { flex: 1 1 auto; min-width: 0; font-size: .76rem; overflow-wrap: anywhere; }
+.esds-user-background-row .esds-button { flex: 0 0 auto; min-height: 34px; padding: 6px 10px; font-size: .68rem; }
+.esds-advanced-tools { margin: 14px 13px 18px; padding: 9px 11px; }
+.esds-advanced-toggle {
+  width: 100%;
+  min-height: 38px;
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text-normal);
+  text-align: left;
+  font-size: .82rem;
+  font-weight: 700;
+}
+.esds-advanced-content { padding: 8px 0 2px; }
+.esds-inline-details { margin-top: 12px; padding: 9px 10px; border: 1px solid var(--background-modifier-border); border-radius: 11px; }
+.esds-inline-details > summary { color: var(--text-normal); font-size: .8rem; font-weight: 650; cursor: pointer; }
+.esds-inline-details .esds-palette-grid { margin-top: 10px; }
+
+/* Clear, non-overlapping style-block cards and background thumbnails. */
+.esds-block-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 11px;
+}
+.esds-block-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 11px;
+  gap: 7px;
+  overflow: visible;
+}
+.esds-block-demo {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  height: auto;
+  margin: 0;
+  padding: 9px 10px;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.esds-block-card > strong,
+.esds-block-card > small { display: block; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+.esds-background-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  align-items: stretch;
+  gap: 10px;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.esds-bg-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 150px;
+  margin: 0;
+  overflow: hidden;
+}
+.esds-bg-card > span,
+.esds-bg-card > small {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-overflow: clip;
+}
+.esds-bg-thumb { display: block; flex: 0 0 92px; width: 100%; height: 92px; min-height: 92px; }
+
+/* Preview is a fixed-height composition: the whole sample and all actions stay visible. */
+.esds-preview-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(680px, 94vw);
+  max-width: 94vw;
+  height: 86dvh;
+  max-height: 86dvh;
+  min-height: min(390px, 86dvh);
+  overflow: hidden;
+}
+.esds-preview-modal .modal-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  max-height: none;
+  overflow: hidden;
+  padding: 0 !important;
+}
+.esds-preview-modal-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  max-height: none;
+  overflow: hidden;
+  padding: 0 0 max(8px, env(safe-area-inset-bottom));
+  background: var(--background-primary);
+}
+.esds-preview-modal-header {
+  position: relative;
+  top: auto;
+  z-index: 1;
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 13px 58px 11px 14px;
+  background: var(--background-primary);
+}
+.esds-preview-modal-header .esds-heading-wrap h2 { font-size: .98rem; }
+.esds-preview-modal-header .esds-heading-wrap p { font-size: .68rem; line-height: 1.3; overflow-wrap: anywhere; }
+.esds-preview-modal-content > .esds-preview {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  height: auto;
+  margin: 8px 10px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+.esds-preview-modal-content .esds-sample-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 10px 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.esds-preview-modal-content .esds-kicker { margin: 0 0 1px; font-size: .58rem; line-height: 1.1; }
+.esds-preview-modal-content .esds-sample-note h1 { margin: 0 0 2px; font-size: 1.1rem; line-height: 1.15; }
+.esds-preview-modal-content .esds-sample-note h2 { margin: 4px 0 1px; font-size: .78rem; line-height: 1.15; }
+.esds-preview-modal-content .esds-role { margin: 1px 0; font-size: .76rem; line-height: 1.25; overflow-wrap: anywhere; }
+.esds-preview-grammar { display: flex; flex-direction: column; gap: 2px; margin-top: 2px; }
+.esds-preview-grammar strong,
+.esds-preview-grammar span { font-size: .72rem; line-height: 1.25; overflow-wrap: anywhere; }
+.esds-preview-modal-content .esds-focus-row { display: flex; flex-wrap: wrap; gap: 5px; margin: 3px 0; }
+.esds-preview-modal-content .esds-focus-row span { padding: 3px 6px; border-radius: 6px; font-size: .62rem; line-height: 1.2; }
+.esds-preview-modal-content .esds-example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 6px;
+  min-height: 0;
+}
+.esds-preview-modal-content .esds-demo-callout {
+  min-width: 0;
+  min-height: 0;
+  padding: 6px 8px;
+  border-radius: var(--esds-block-radius, 10px);
+  overflow: hidden;
+}
+.esds-preview-modal-content .esds-demo-callout:nth-child(3) { grid-column: 1 / -1; }
+.esds-preview-modal-content .esds-demo-callout strong { margin-bottom: 1px; font-size: .67rem; line-height: 1.2; }
+.esds-preview-modal-content .esds-demo-callout p { font-size: .64rem; line-height: 1.25; overflow-wrap: anywhere; }
+.esds-preview-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  flex: 0 0 auto;
+  gap: 7px;
+  margin: 0;
+  padding: 7px 10px 0;
+}
+.esds-preview-actions > .esds-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 6px 4px;
+  border-radius: 10px;
+  font-size: .7rem;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.esds-preview-actions > .esds-button.is-saved { filter: saturate(.82); }
+
+@media (max-width: 420px) {
+  .esds-combo-card { align-items: stretch; flex-direction: column; }
+  .esds-combo-actions { flex-direction: row; }
+  .esds-combo-actions .esds-button { flex: 1 1 0; }
+  .esds-subview-header { align-items: flex-start; }
+  .esds-subview-header .esds-back-button { min-height: 34px; padding: 5px 8px; font-size: .7rem; }
+  .esds-library-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-preview-modal { height: 88dvh; max-height: 88dvh; }
+  .esds-preview-modal-content .esds-sample-note { padding: 8px 9px; gap: 3px; }
+  .esds-preview-modal-content .esds-sample-note h1 { font-size: 1rem; }
+  .esds-preview-modal-content .esds-role { font-size: .71rem; }
+  .esds-preview-modal-content .esds-demo-callout p { font-size: .6rem; }
+  .esds-preview-actions { gap: 5px; padding-left: 8px; padding-right: 8px; }
+  .esds-preview-actions > .esds-button { font-size: .66rem; min-height: 36px; }
+}
+@media (max-height: 700px) {
+  .esds-preview-modal { height: 88dvh; max-height: 88dvh; }
+  .esds-preview-modal-header { padding-top: 8px; padding-bottom: 7px; }
+  .esds-preview-modal-content > .esds-preview { margin-top: 5px; margin-bottom: 5px; }
+  .esds-preview-modal-content .esds-sample-note { padding-top: 7px; padding-bottom: 7px; gap: 2px; }
+  .esds-preview-modal-content .esds-sample-note h1 { font-size: .98rem; }
+  .esds-preview-modal-content .esds-role { font-size: .68rem; line-height: 1.2; }
+  .esds-preview-modal-content .esds-focus-row { margin: 1px 0; }
+  .esds-preview-modal-content .esds-demo-callout { padding: 4px 6px; }
+  .esds-preview-actions { padding-top: 5px; }
+  .esds-preview-actions > .esds-button { min-height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .esds-button, .esds-palette-card, .esds-bg-card, .esds-block-card { transition: none !important; }
+}
+
+/* Small UI polish: native close button is the only close control; selected checkmarks stay circular. */
+.esds-builder-modal .esds-header { padding-right: 58px; }
+.esds-bg-card > .esds-card-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  min-width: 23px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* 0.5.1 — aligned navigation and visual library cards. */
+.esds-subview-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center !important;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.esds-subview-header .esds-back-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: auto;
+  min-width: 82px;
+  min-height: 38px;
+  margin: 0;
+  padding: 7px 11px;
+  box-sizing: border-box;
+  text-align: center;
+  text-indent: 0;
+  white-space: nowrap;
+  line-height: 1.15;
+  transform: none;
+}
+.esds-back-arrow {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: .9;
+}
+.esds-back-label {
+  display: inline-block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+.esds-subview-header .esds-heading-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  text-align: left;
+}
+.esds-subview-header .esds-heading-wrap h2,
+.esds-subview-header .esds-heading-wrap p {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.esds-builder-modal .esds-header .esds-heading-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  text-align: left;
+}
+.esds-builder-modal .esds-header .esds-heading-wrap h2,
+.esds-builder-modal .esds-header .esds-heading-wrap p { text-align: left; }
+.esds-builder-modal .esds-preview-actions > .esds-button,
+.esds-library-tool-grid > .esds-button,
+.esds-library-copy-actions > .esds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-indent: 0;
+  line-height: 1.2;
+}
+
+/* Small, genuine appearance samples for recent/favorite combinations. */
+.esds-combo-card {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  align-items: center;
+  justify-content: initial;
+  gap: 9px;
+  padding: 9px;
+}
+.esds-combo-card-clickable { cursor: pointer; }
+.esds-combo-card-clickable:active { border-color: var(--interactive-accent); }
+.esds-combo-thumb {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 70px;
+  height: 76px;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 9px;
+  background: var(--note-background, var(--background-secondary));
+  color: var(--esds-ink, var(--text-normal));
+}
+.esds-combo-thumb-note {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 7px 6px;
+  overflow: hidden;
+}
+.esds-combo-thumb-heading {
+  overflow: hidden;
+  color: var(--esds-heading, var(--text-normal));
+  font-size: .55rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-combo-thumb-en {
+  overflow: hidden;
+  color: var(--esds-en, var(--text-normal));
+  font-size: .49rem;
+  font-weight: 750;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-combo-thumb-ipa {
+  overflow: hidden;
+  color: var(--esds-ipa, var(--text-muted));
+  font-size: .46rem;
+  font-style: italic;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-combo-thumb-block {
+  flex: 0 0 auto;
+  height: 12px;
+  min-height: 12px;
+  margin-top: auto;
+  border: 1px solid rgba(var(--esds-callout-rule, 100, 130, 190), var(--esds-block-border-opacity, .48));
+  border-left-width: 3px;
+  border-radius: var(--esds-block-radius, 8px);
+  background: rgba(var(--esds-callout-rule, 100, 130, 190), var(--esds-block-opacity, .13));
+}
+.esds-combo-info { min-width: 0; }
+.esds-combo-info strong,
+.esds-combo-info small { overflow-wrap: anywhere; }
+.esds-combo-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.esds-combo-actions .esds-button {
+  min-width: 0;
+  min-height: 32px;
+  padding: 5px 8px;
+  font-size: .66rem;
+  white-space: nowrap;
+}
+
+/* The library's copy shortcuts are visible without opening Advanced. */
+.esds-library-copy-section .esds-section-note { margin-bottom: 9px; }
+.esds-library-copy-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 8px;
+}
+.esds-library-copy-actions .esds-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 9px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: .72rem;
+}
+
+/* Block-style cards now use the same visual-first pattern as backgrounds. */
+.esds-block-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 10px;
+}
+.esds-block-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 9px;
+  gap: 6px;
+  overflow: hidden;
+  text-align: left;
+}
+.esds-block-style-preview {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  min-height: 76px;
+  margin: 0;
+  padding: 7px;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 9px;
+  background: var(--note-background, var(--background-primary));
+  color: var(--esds-ink, var(--text-normal));
+}
+.esds-block-style-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  min-width: 0;
+  color: var(--esds-heading, var(--text-normal));
+}
+.esds-block-style-heading > span { font-size: .72rem; font-weight: 800; }
+.esds-block-style-heading > small {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: .43rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-block-style-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 5px 6px;
+  border: 1px solid rgba(var(--esds-callout-rule, 100, 130, 190), var(--esds-block-border-opacity, .48));
+  border-left-width: 3px;
+  border-radius: var(--esds-block-radius, 8px);
+  background: rgba(var(--esds-callout-rule, 100, 130, 190), var(--esds-block-opacity, .13));
+}
+.esds-block-style-text > strong {
+  color: var(--esds-heading, var(--text-normal));
+  font-size: .57rem;
+  line-height: 1.1;
+}
+.esds-block-style-text > span {
+  overflow: hidden;
+  color: var(--esds-en, var(--text-normal));
+  font-size: .52rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-block-card > strong { padding-right: 20px; font-size: .75rem; line-height: 1.25; }
+.esds-block-card > small { font-size: .65rem; line-height: 1.3; overflow-wrap: anywhere; }
+
+@media (max-width: 420px) {
+  .esds-subview-header { align-items: center !important; }
+  .esds-subview-header .esds-back-button { align-self: center; min-width: 78px; min-height: 36px; padding: 6px 9px; font-size: .72rem; }
+  .esds-combo-card { grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center; flex-direction: initial; }
+  .esds-combo-thumb { width: 64px; height: 70px; }
+  .esds-combo-actions { flex-direction: column; }
+  .esds-combo-actions .esds-button { min-height: 30px; padding: 4px 6px; }
+  .esds-library-copy-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-library-copy-actions .esds-button { min-height: 44px; font-size: .67rem; }
+  .esds-block-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-block-style-preview { min-height: 70px; padding: 6px; }
+}
+
+
+/* 0.5.2 — multi-colour callout swatches inside block-style cards. */
+.esds-block-style-preview {
+  gap: 7px;
+  min-height: 112px;
+  justify-content: flex-start;
+}
+.esds-block-color-samples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  width: 100%;
+  min-width: 0;
+}
+.esds-block-color-samples .esds-demo-callout {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 25px;
+  padding: 3px 5px;
+  border-left-width: 3px;
+  border-radius: var(--esds-block-radius, 8px);
+  overflow: hidden;
+}
+.esds-block-color-samples .esds-demo-callout > span {
+  display: block;
+  overflow: hidden;
+  color: var(--esds-ink, var(--text-normal));
+  font-size: .52rem;
+  font-weight: 650;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-block-card.is-selected .esds-block-style-preview {
+  outline: 1px solid var(--interactive-accent);
+  outline-offset: 1px;
+}
+@media (max-width: 420px) {
+  .esds-block-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-block-card { display: flex; flex-direction: column; align-items: stretch; }
+  .esds-block-style-preview { width: 100%; min-height: 108px; }
+  .esds-block-color-samples { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+/* 0.5.3 — full-width visual selectors and stable Android action/navigation layout. */
+.esds-current-summary.esds-summary-card {
+  margin: 12px 12px 8px;
+  padding: 10px 56px 10px 13px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  border-left-width: 4px;
+}
+.esds-current-summary.esds-summary-card > span {
+  display: block;
+  min-width: 0;
+  font-size: .84rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.esds-quick-actions { padding: 4px 12px 9px; }
+.esds-quick-actions > .esds-button { min-height: 38px; }
+.esds-library-shortcuts { padding: 0 12px 10px; }
+.esds-accordion { margin-left: 10px; margin-right: 10px; }
+.esds-accordion-labels small { display: none; }
+
+/* Palette choices: one full-width row each, showing the real note colours together. */
+.esds-palette-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 9px;
+}
+.esds-palette-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 9px;
+  gap: 7px;
+  overflow: hidden;
+  text-align: left;
+}
+.esds-palette-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+.esds-palette-card-title > strong {
+  min-width: 0;
+  padding: 0;
+  font-size: .82rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.esds-palette-card-title .esds-card-check {
+  position: static;
+  z-index: auto;
+  border: 0;
+  box-shadow: none;
+  display: inline-flex;
+  flex: 0 0 22px;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: .72rem;
+}
+.esds-palette-card-preview.esds-preview {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  max-height: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 9px;
+}
+.esds-palette-sample-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3px;
+  min-width: 0;
+  padding: 8px 10px;
+}
+.esds-palette-sample-heading {
+  color: var(--esds-heading, var(--text-normal));
+  font-size: .78rem;
+  line-height: 1.15;
+}
+.esds-palette-sample-en,
+.esds-palette-sample-ipa,
+.esds-palette-sample-translation {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  font-size: .68rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.esds-palette-sample-callout {
+  min-width: 0;
+  margin-top: 2px;
+  padding: 4px 7px;
+  border-left-width: 3px;
+  border-radius: var(--esds-block-radius, 8px);
+  overflow: hidden;
+}
+.esds-palette-sample-callout > span {
+  display: block;
+  color: var(--esds-ink, var(--text-normal));
+  font-size: .59rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+/* Block styles: one selectable row per style, split into six compact colour blocks. */
+.esds-block-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 8px;
+}
+.esds-block-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 9px 10px;
+  gap: 7px;
+  overflow: hidden;
+  text-align: left;
+}
+.esds-block-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+.esds-block-card-heading > strong {
+  min-width: 0;
+  padding: 0;
+  font-size: .8rem;
+  line-height: 1.2;
+}
+.esds-block-card-heading .esds-card-check {
+  position: static;
+  z-index: auto;
+  border: 0;
+  box-shadow: none;
+  display: inline-flex;
+  flex: 0 0 21px;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: .7rem;
+}
+.esds-block-style-preview.esds-preview {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 9px;
+}
+.esds-block-color-samples {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 3px;
+  width: 100%;
+  min-width: 0;
+}
+.esds-block-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 43px;
+  margin: 0;
+  padding: 4px 1px;
+  border: 1px solid rgba(var(--esds-callout-rgb), var(--esds-block-border-opacity, .48));
+  border-left-width: 3px;
+  border-radius: var(--esds-block-radius, 8px);
+  background: rgba(var(--esds-callout-rgb), var(--esds-block-opacity, .13));
+  overflow: hidden;
+}
+.esds-block-swatch::before {
+  content: "";
+  display: block;
+  width: 58%;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 5px;
+  background: rgb(var(--esds-callout-rgb));
+  opacity: .8;
+}
+.esds-block-swatch > span {
+  display: block;
+  max-width: 100%;
+  color: var(--esds-ink, var(--text-normal));
+  font-size: clamp(.39rem, 1.55vw, .5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.esds-block-card.is-selected .esds-block-style-preview {
+  box-shadow: inset 0 0 0 1px var(--interactive-accent);
+}
+
+/* Back buttons and builder headers share a fixed, centered two-column layout. */
+.esds-subview-header {
+  display: grid !important;
+  grid-template-columns: 82px minmax(0, 1fr);
+  align-items: center !important;
+  justify-content: initial;
+  gap: 10px;
+  min-width: 0;
+  padding-right: 58px;
+}
+.esds-subview-header .esds-back-button,
+.esds-builder-back-button {
+  display: inline-flex !important;
+  flex: 0 0 82px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px;
+  width: 82px;
+  min-width: 82px;
+  min-height: 38px;
+  margin: 0 !important;
+  padding: 6px 5px !important;
+  box-sizing: border-box;
+  text-align: center !important;
+  text-indent: 0 !important;
+  white-space: nowrap;
+  line-height: 1.1;
+  transform: none !important;
+}
+.esds-back-arrow { display: inline-flex; align-items: center; justify-content: center; margin: 0; padding: 0; line-height: .9; }
+.esds-back-label { display: inline-block; flex: 0 0 auto; margin: 0; padding: 0; line-height: 1.1; }
+.esds-subview-header .esds-heading-wrap,
+.esds-builder-header .esds-heading-wrap {
+  min-width: 0;
+  margin: 0;
+  text-align: left !important;
+}
+.esds-subview-header .esds-heading-wrap h2,
+.esds-subview-header .esds-heading-wrap p,
+.esds-builder-header .esds-heading-wrap h2,
+.esds-builder-header .esds-heading-wrap p {
+  text-align: left !important;
+  overflow-wrap: anywhere;
+}
+.esds-builder-header {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 14px 58px 13px 14px;
+}
+.esds-builder-back-button { min-height: 38px; }
+
+/* The three main actions stay visible in a single fixed footer row. */
+.esds-main-footer {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  flex: 0 0 auto;
+  gap: 6px;
+  padding: 8px 9px max(9px, env(safe-area-inset-bottom));
+}
+.esds-main-footer > .esds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  margin: 0;
+  padding: 5px 4px;
+  text-align: center;
+  text-indent: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: .68rem;
+  line-height: 1.12;
+}
+.esds-main-footer .esds-main-cta { flex: initial; min-height: 40px; font-size: .7rem; }
+.esds-main-footer .esds-btn-outline-coral { flex: initial; }
+@media (max-width: 420px) {
+  .esds-main-footer { grid-template-columns: repeat(3, minmax(0, 1fr)); flex-direction: initial; }
+  .esds-main-footer > .esds-button { width: 100%; min-height: 40px; font-size: .62rem; }
+  .esds-main-footer .esds-main-cta,
+  .esds-main-footer .esds-btn-outline-coral { flex: initial; }
+  .esds-library-shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .esds-block-color-samples { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .esds-block-swatch { min-height: 39px; }
+  .esds-subview-header { grid-template-columns: 78px minmax(0, 1fr); }
+  .esds-subview-header .esds-back-button,
+  .esds-builder-back-button { flex-basis: 78px; width: 78px; min-width: 78px; }
+  .esds-builder-header { grid-template-columns: 78px minmax(0, 1fr); }
+}
+
+
+/* 0.5.5 — always-visible live templates; no accordion clicks or preview footer action. */
+.esds-section-static { overflow: visible; margin-bottom: 16px; }
+.esds-static-section-header { min-height: 54px; border-radius: 12px 12px 0 0; }
+.esds-static-section-header .esds-accordion-icon { flex: 0 0 28px; }
+.esds-static-section-body { padding: 12px; border-top: 1px solid var(--background-modifier-border); }
+.esds-section-static .esds-accordion-trigger { cursor: default; }
+.esds-template-group-caption { margin: 3px 2px 9px; color: var(--text-muted); font-size: .72rem; letter-spacing: .045em; text-transform: uppercase; }
+.esds-user-template-caption { margin-top: 18px; }
+.esds-template-card-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.esds-template-card {
+  position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 9px;
+  width: 100%; min-width: 0; padding: 11px; border: 1px solid var(--background-modifier-border);
+  border-radius: 13px; background: var(--background-secondary); color: var(--text-normal); text-align: left;
+  box-sizing: border-box; overflow: hidden;
+}
+.esds-template-card.is-selected, .esds-block-template-card.is-selected {
+  border: 1.5px solid var(--interactive-accent);
+  background: color-mix(in srgb, var(--interactive-accent) 7%, var(--background-secondary));
+  box-shadow: inset 0 0 0 .5px var(--interactive-accent);
+}
+.esds-template-card:focus-visible, .esds-block-template-card:focus-visible, .esds-background-template-card:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
+.esds-template-card-heading { display: flex; align-items: center; gap: 10px; justify-content: space-between; min-width: 0; }
+.esds-template-card-heading strong { min-width: 0; font-size: .91rem; line-height: 1.25; }
+.esds-template-check { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; background: var(--interactive-accent); color: var(--text-on-accent); font-size: .78rem; font-weight: 800; visibility: hidden; }
+.esds-template-check.is-visible { visibility: visible; }
+.esds-template-swatches { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 4px; width: 100%; }
+.esds-template-swatch { display: block; height: 9px; min-width: 0; border-radius: 99px; border: 1px solid rgba(0,0,0,.10); }
+.esds-template-live-preview { margin: 0 !important; max-height: none !important; overflow: visible !important; border-radius: 10px; }
+.esds-template-palette-preview { padding: 8px; }
+.esds-inline-sample-note { padding: 9px; }
+.esds-inline-sample-note .esds-kicker { font-size: .55rem; margin-bottom: 3px; }
+.esds-inline-sample-note h2 { margin: 0 0 5px; font-size: .93rem; line-height: 1.2; }
+.esds-inline-role-list { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.esds-inline-role-list .esds-role { margin: 2px 0; font-size: .69rem; line-height: 1.35; overflow-wrap: anywhere; }
+.esds-inline-sample-note .esds-preview-grammar { display: flex; flex-direction: column; gap: 2px; margin: 6px 0 8px; font-size: .67rem; }
+.esds-inline-sample-note .esds-preview-grammar strong, .esds-inline-sample-note .esds-preview-grammar span { display: block; }
+.esds-preview-blocks-heading { margin: 8px 0 6px !important; font-size: .72rem !important; }
+.esds-inline-example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.esds-inline-example-grid .esds-demo-callout { min-width: 0; padding: 7px; border-left-width: 3px; border-radius: var(--esds-block-radius, 9px); }
+.esds-inline-example-grid .esds-demo-callout strong { font-size: .66rem; margin-bottom: 2px; }
+.esds-inline-example-grid .esds-demo-callout p { font-size: .61rem; line-height: 1.3; overflow-wrap: anywhere; }
+.esds-background-template-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; max-height: none; overflow: visible; }
+.esds-background-template-card { display: flex; flex-direction: column; position: relative; min-width: 0; }
+.esds-bg-thumb.esds-background-live-preview { display: flex; align-items: stretch; height: 105px; min-height: 105px; padding: 8px; box-sizing: border-box; }
+.esds-background-sample { display: flex; flex-direction: column; justify-content: center; gap: 4px; width: 100%; min-width: 0; padding: 2px; }
+.esds-background-sample strong { display: block; font-size: .7rem; line-height: 1.25; color: var(--esds-en, var(--text-normal)); }
+.esds-background-sample span { display: block; font-size: .57rem; line-height: 1.25; overflow-wrap: anywhere; }
+.esds-background-sample .esds-ipa { color: var(--esds-ipa, var(--text-muted)); }
+.esds-background-sample .esds-translation { color: var(--esds-translation, var(--text-normal)); }
+.esds-background-sample-line { height: 4px; width: 70%; max-width: 90px; margin-top: 3px; border-radius: 99px; opacity: .85; }
+.esds-bg-template-info { position: relative; display: flex; flex-direction: column; gap: 3px; min-height: 48px; padding: 7px 8px 8px; }
+.esds-bg-template-info > span { display: block; padding-right: 17px; font-size: .69rem; line-height: 1.25; font-weight: 700; overflow-wrap: anywhere; }
+.esds-bg-template-info > small { color: var(--text-muted); font-size: .59rem; line-height: 1.2; }
+.esds-background-template-card .esds-bg-check { top: auto; bottom: 7px; right: 7px; }
+.esds-block-template-list { display: flex; flex-direction: column; gap: 5px; }
+.esds-block-template-group { display: flex; flex-direction: column; gap: 7px; }
+.esds-block-style-divider { display: flex; align-items: center; gap: 9px; min-height: 27px; margin: 10px 4px 0; color: var(--text-normal); }
+.esds-block-style-divider::before, .esds-block-style-divider::after { content: ''; display: block; flex: 1 1 20px; height: 1px; background: var(--background-modifier-border); }
+.esds-block-style-name { flex: 0 1 auto; max-width: 72%; font-size: .82rem; line-height: 1.2; font-weight: 750; text-align: center; }
+.esds-block-style-check { flex-basis: 20px; width: 20px; height: 20px; margin-left: -3px; }
+.esds-block-template-card { display: block; width: 100%; min-width: 0; padding: 8px; border: 1px solid var(--background-modifier-border); border-radius: 12px; background: var(--background-secondary); color: var(--text-normal); text-align: left; box-sizing: border-box; }
+.esds-block-template-card .esds-block-style-preview { padding: 7px; }
+.esds-block-template-card .esds-inline-example-grid { gap: 7px; }
+.esds-main-footer { gap: 8px; }
+.esds-main-footer .esds-button { min-height: 42px; }
+@media (max-width: 420px) {
+  .esds-static-section-body { padding: 10px; }
+  .esds-template-card { padding: 9px; }
+  .esds-inline-example-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 5px; }
+  .esds-inline-example-grid .esds-demo-callout { padding: 6px; }
+  .esds-inline-example-grid .esds-demo-callout strong { font-size: .62rem; }
+  .esds-inline-example-grid .esds-demo-callout p { font-size: .57rem; }
+  .esds-bg-thumb.esds-background-live-preview { height: 95px; min-height: 95px; padding: 6px; }
+  .esds-bg-template-info > span { font-size: .64rem; }
+}
+
+/* === 0.6.0: block style builder + categories === */
+.esds-block-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.esds-badge-custom { font-size: .65rem; padding: 1px 6px; border-radius: 999px; background: rgba(80,160,220,.18); color: var(--text-accent); font-weight: 600; }
+.esds-badge-protected { font-size: .65rem; opacity: .55; margin-left: 6px; }
+.esds-category-row, .esds-color-override-row, .esds-callout-target-row, .esds-theme-toggle { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; align-items: center; }
+.esds-select { min-height: 34px; border-radius: 8px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-normal); padding: 4px 8px; }
+.esds-style-props { display: grid; gap: 8px; margin: 10px 0; }
+.esds-prop-field { display: flex; flex-direction: column; gap: 3px; }
+.esds-prop-field label { font-size: .78rem; opacity: .9; }
+.esds-prop-field input[type="range"] { width: 100%; }
+.esds-block-builder-preview { margin: 14px 0; padding: 10px; border-radius: 12px; border: 1px solid var(--background-modifier-border); background: var(--background-secondary); }
+.esds-block-builder-preview > strong { display: block; margin-bottom: 8px; font-size: .8rem; }
+.esds-category-manage-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--background-modifier-border); }
+.esds-category-manage-row strong { flex: 1 1 120px; }
+.esds-block-style-builder .esds-builder-body label { display: block; margin-top: 10px; margin-bottom: 4px; font-size: .8rem; font-weight: 600; }
+
+/* === 0.6.1 polish: menu, reorder, sticky, color grid === */
+.esds-block-style-controls { display: inline-flex; align-items: center; gap: 2px; margin-left: 4px; }
+.esds-icon-btn {
+  min-width: 28px; height: 28px; padding: 0 6px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px; background: var(--background-secondary);
+  color: var(--text-muted); font-size: .85rem; line-height: 1;
+  cursor: pointer;
+}
+.esds-icon-btn:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+.esds-more-btn { font-weight: 700; letter-spacing: 1px; }
+
+.esds-style-menu-popover {
+  min-width: 168px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.esds-menu-item {
+  display: block; width: 100%; text-align: left;
+  padding: 9px 12px; border: none; border-radius: 8px;
+  background: transparent; color: var(--text-normal);
+  font-size: .85rem; cursor: pointer;
+}
+.esds-menu-item:hover { background: var(--background-modifier-hover); }
+.esds-menu-danger { color: #e25555; }
+.esds-menu-danger:hover { background: rgba(226,85,85,.12); }
+
+.esds-callout-color-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 6px 0 12px;
+}
+.esds-callout-color-cell {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 8px; border-radius: 10px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+.esds-callout-color-label { flex: 1; font-size: .75rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.esds-callout-color-cell input[type="color"] { width: 32px; height: 28px; padding: 0; border: none; background: transparent; cursor: pointer; }
+
+/* Sticky current theme summary */
+.esds-main-scroll { position: relative; }
+.esds-current-summary.esds-summary-card {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--background-primary) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.esds-quick-actions { position: sticky; top: 48px; z-index: 19; background: var(--background-primary); padding-bottom: 6px; }
+
+.esds-block-template-card.is-selected {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 1px var(--interactive-accent);
+}
+.esds-block-style-divider { flex-wrap: wrap; }
+
+/* === 0.6.2: accordion restored + rich palette samples + larger blocks === */
+.esds-accordion-body { display: block; }
+.esds-accordion:not(.is-open) .esds-accordion-body { display: none !important; }
+.esds-static-section-body { display: block; } /* legacy no longer forced */
+
+.esds-accordion-trigger { cursor: pointer; }
+.esds-accordion-trigger:hover { filter: brightness(1.05); }
+
+/* Palette rich sample — like the red-circled preview */
+.esds-palette-rich-sample {
+  margin-top: 8px !important;
+  padding: 12px 14px !important;
+  min-height: 120px;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--note-background, var(--background-secondary));
+}
+.esds-rich-sample { display: flex; flex-direction: column; gap: 4px; }
+.esds-rich-title {
+  margin: 0 0 4px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: var(--esds-heading, var(--text-accent)) !important;
+}
+.esds-rich-sample .esds-en {
+  margin: 0;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--esds-en, var(--text-normal));
+}
+.esds-rich-sample .esds-ipa {
+  margin: 0;
+  font-size: .78rem;
+  opacity: .85;
+  color: var(--esds-ipa, var(--text-muted));
+}
+.esds-rich-sample .esds-translation {
+  margin: 0 0 6px;
+  font-size: .82rem;
+  color: var(--esds-translation, var(--text-muted));
+}
+.esds-rich-mini-callout {
+  margin-top: 4px;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+}
+.esds-rich-mini-callout strong { font-size: .72rem !important; }
+.esds-rich-mini-callout p { font-size: .72rem !important; margin: 0 !important; }
+
+.esds-template-card.esds-palette-template-card {
+  padding: 12px !important;
+  border-radius: 16px !important;
+}
+.esds-template-card-heading strong { font-size: 1rem !important; }
+
+/* Larger block style gallery */
+.esds-block-gallery-large {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+.esds-block-gallery-large .esds-demo-callout {
+  padding: 11px 12px !important;
+  min-height: 64px;
+  border-radius: 12px !important;
+  border-left-width: 4px !important;
+}
+.esds-block-gallery-large .esds-demo-callout strong {
+  font-size: .8rem !important;
+  margin-bottom: 4px !important;
+}
+.esds-block-gallery-large .esds-demo-callout p {
+  font-size: .76rem !important;
+  line-height: 1.35 !important;
+}
+.esds-block-template-card {
+  padding: 12px !important;
+  border-radius: 16px !important;
+}
+.esds-block-style-preview {
+  padding: 10px !important;
+  min-height: 160px;
+}
+
+/* Hide the old "Примеры блоков" heading if any leftover */
+.esds-preview-blocks-heading { display: none !important; }
+
+/* Category name between cards — clearer */
+.esds-block-style-divider {
+  margin: 14px 2px 6px !important;
+  min-height: 24px;
+}
+.esds-block-style-name {
+  font-size: .88rem !important;
+  font-weight: 700 !important;
+  opacity: .9;
+}
+
+@media (max-width: 420px) {
+  .esds-palette-rich-sample { min-height: 110px; padding: 10px 12px !important; }
+  .esds-rich-title { font-size: .98rem !important; }
+  .esds-block-gallery-large .esds-demo-callout { min-height: 58px; padding: 9px 10px !important; }
+}
+
+/* === 0.6.3 HARD FIX: layout collisions === */
+
+/* Quick actions + shortcuts must not collapse */
+.esds-quick-actions {
+  position: static !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  padding: 8px 14px 6px !important;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.esds-quick-actions .esds-button {
+  min-height: 44px !important;
+  height: auto !important;
+  flex: 1 1 100% !important;
+}
+.esds-library-shortcuts {
+  position: static !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  padding: 0 14px 14px !important;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.esds-library-shortcuts .esds-button {
+  min-height: 44px !important;
+  height: auto !important;
+  padding: 10px 8px !important;
+  font-size: .78rem !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* Block style groups: clear separation, no overlap */
+.esds-block-template-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 22px !important;
+  padding-bottom: 12px;
+}
+.esds-block-template-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+.esds-block-style-divider {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  min-height: 28px !important;
+  margin: 0 4px !important;
+  padding: 0 !important;
+  z-index: 1;
+}
+.esds-block-style-divider::before,
+.esds-block-style-divider::after {
+  content: '' !important;
+  display: block !important;
+  flex: 1 1 16px !important;
+  height: 1px !important;
+  background: var(--background-modifier-border) !important;
+}
+.esds-block-style-name {
+  flex: 0 1 auto !important;
+  max-width: 70% !important;
+  font-size: .86rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  color: var(--text-normal) !important;
+  background: var(--background-primary) !important;
+  padding: 0 6px !important;
+}
+.esds-block-style-check {
+  position: static !important;
+  flex: 0 0 auto !important;
+}
+.esds-block-style-controls {
+  flex: 0 0 auto !important;
+  position: static !important;
+}
+
+.esds-block-template-card {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: var(--background-secondary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+}
+.esds-block-template-card.is-selected {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 1px var(--interactive-accent) !important;
+}
+.esds-block-style-preview {
+  position: relative !important;
+  padding: 4px !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+.esds-block-gallery-large {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin: 0 !important;
+}
+.esds-block-gallery-large .esds-demo-callout {
+  margin: 0 !important;
+  min-height: 56px !important;
+  padding: 10px !important;
+}
+
+/* Sticky summary only — don't sticky the buttons */
+.esds-current-summary.esds-summary-card {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 30 !important;
+}
+
+.esds-card-selected-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+.esds-block-template-card { position: relative !important; }
+
+/* Kill any leftover max-height that clips block galleries */
+.esds-block-style-preview,
+.esds-block-style-preview .esds-example-grid,
+.esds-block-template-card .esds-preview {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.esds-section-note {
+  font-size: .75rem;
+  line-height: 1.4;
+  opacity: .75;
+  margin: 0 0 10px;
+  padding: 0 2px;
+}
+.esds-block-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.esds-block-toolbar .esds-button {
+  width: 100%;
+  min-height: 44px;
+}
+
+/* ========== 0.6.4 FINAL LAYOUT FIX ========== */
+
+/* Inline theme samples (not modal .esds-preview) */
+.esds-inline-theme {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  margin: 0 !important;
+}
+.esds-inline-theme .esds-en { color: var(--esds-en, var(--text-accent)); }
+.esds-inline-theme .esds-ipa { color: var(--esds-ipa, var(--text-muted)); font-style: italic; }
+.esds-inline-theme .esds-translation { color: var(--esds-translation, var(--text-muted)); }
+.esds-inline-theme .esds-callout-rule { --esds-callout-rgb: var(--esds-callout-rule); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-example { --esds-callout-rgb: var(--esds-callout-example); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-important { --esds-callout-rgb: var(--esds-callout-important); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-tip { --esds-callout-rgb: var(--esds-callout-tip); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-practice { --esds-callout-rgb: var(--esds-callout-practice); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-success { --esds-callout-rgb: var(--esds-callout-success); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-callout-warning { --esds-callout-rgb: var(--esds-callout-warning); color: rgb(var(--esds-callout-rgb)); }
+.esds-inline-theme .esds-demo-callout {
+  background: rgba(var(--esds-callout-rgb, 100, 120, 180), var(--esds-block-opacity, .13));
+  border-color: rgba(var(--esds-callout-rgb, 100, 120, 180), var(--esds-block-border-opacity, .48));
+}
+
+/* Palette cards — full rich sample */
+.esds-template-card.esds-palette-template-card {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 12px !important;
+  margin: 0 0 12px !important;
+  border-radius: 16px !important;
+  text-align: left !important;
+  cursor: pointer;
+  box-sizing: border-box !important;
+}
+.esds-palette-rich-sample {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 130px !important;
+  max-height: none !important;
+  overflow: visible !important;
+  margin-top: 10px !important;
+  padding: 14px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: var(--note-background, var(--background-secondary)) !important;
+  box-sizing: border-box !important;
+}
+.esds-rich-sample {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+.esds-rich-title {
+  display: block !important;
+  margin: 0 !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  color: var(--esds-heading, var(--text-accent)) !important;
+}
+.esds-rich-sample .esds-en {
+  display: block !important;
+  margin: 0 !important;
+  font-size: .92rem !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  color: var(--esds-en, var(--text-normal)) !important;
+}
+.esds-rich-sample .esds-ipa {
+  display: block !important;
+  margin: 0 !important;
+  font-size: .78rem !important;
+  line-height: 1.3 !important;
+  color: var(--esds-ipa, var(--text-muted)) !important;
+  font-style: italic !important;
+  opacity: 1 !important;
+}
+.esds-rich-sample .esds-translation {
+  display: block !important;
+  margin: 0 0 6px !important;
+  font-size: .82rem !important;
+  line-height: 1.35 !important;
+  color: var(--esds-translation, var(--text-muted)) !important;
+  opacity: 1 !important;
+}
+.esds-rich-mini-callout {
+  display: block !important;
+  margin-top: 4px !important;
+  padding: 9px 11px !important;
+  border-radius: 10px !important;
+  border-left-width: 4px !important;
+}
+.esds-rich-mini-callout strong,
+.esds-rich-mini-callout span {
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* Block style cards — all 6 callouts visible */
+.esds-block-template-card {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 12px !important;
+  border-radius: 16px !important;
+  cursor: pointer;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+.esds-block-style-preview {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.esds-block-style-preview.esds-preview {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+.esds-block-gallery-large,
+.esds-block-template-card .esds-example-grid,
+.esds-block-template-card .esds-inline-example-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.esds-block-gallery-large .esds-demo-callout,
+.esds-block-template-card .esds-demo-callout {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 58px !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 10px !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+.esds-block-template-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+.esds-block-template-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  overflow: visible !important;
+}
+
+/* Soft / rich / outline opacity on inline previews */
+.esds-inline-theme.esds-blocks-soft { --esds-block-opacity: .13; --esds-block-border-opacity: .48; --esds-block-radius: 12px; }
+.esds-inline-theme.esds-blocks-rich { --esds-block-opacity: .21; --esds-block-border-opacity: .72; --esds-block-radius: 10px; }
+.esds-inline-theme.esds-blocks-outline { --esds-block-opacity: .045; --esds-block-border-opacity: .82; --esds-block-radius: 8px; }
+
+.esds-template-card-list { display: flex; flex-direction: column; gap: 12px; }
+.esds-template-card-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+.esds-template-card-heading strong { font-size: .95rem; }
+.esds-template-check.is-visible { color: var(--interactive-accent); font-weight: 700; }
+
+
+/* 0.6.5 — Android usability and native Obsidian library storage. */
+.esds-current-summary.esds-summary-card {
+  position: static !important;
+  inset: auto !important;
+  top: auto !important;
+  z-index: auto !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.esds-accordion-labels {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.esds-chevron.esds-accordion-chevron {
+  display: inline-flex;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--background-modifier-hover);
+  color: var(--text-muted);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.esds-accordion.is-open .esds-chevron.esds-accordion-chevron {
+  background: rgba(139, 92, 246, .15);
+  color: var(--text-normal);
+}
+.esds-main-footer {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+.esds-main-footer .esds-apply-note {
+  grid-column: 1 / -1 !important;
+  min-height: 46px !important;
+  font-size: .82rem !important;
+  font-weight: 750 !important;
+}
+
+
+/* 0.6.6 — consistent block style settings on real callouts and live previews. */
+.markdown-preview-view.esds-note .callout,
+.markdown-source-view.esds-note .callout {
+  padding: var(--esds-block-padding-y, 9px) var(--esds-block-padding-x, 10px) !important;
+}
+.markdown-preview-view.esds-note .callout-title,
+.markdown-source-view.esds-note .callout-title {
+  gap: var(--esds-block-gap, 8px) !important;
+  font-size: var(--esds-block-title-size, 12.2px) !important;
+  font-weight: var(--esds-block-title-weight, 600) !important;
+}
+.markdown-preview-view.esds-note .callout-content,
+.markdown-source-view.esds-note .callout-content {
+  font-size: var(--esds-block-body-size, 11.7px) !important;
+}
+.esds-inline-theme .esds-demo-callout {
+  padding: var(--esds-block-padding-y, 9px) var(--esds-block-padding-x, 10px) !important;
+  border-width: var(--esds-block-border-width, 1px) !important;
+  border-radius: var(--esds-block-radius, 12px) !important;
+}
+.esds-inline-theme .esds-demo-callout strong {
+  font-size: var(--esds-block-title-size, 12.2px) !important;
+  font-weight: var(--esds-block-title-weight, 600) !important;
+}
+.esds-inline-theme .esds-demo-callout p,
+.esds-inline-theme .esds-demo-callout span {
+  font-size: var(--esds-block-body-size, 11.7px) !important;
+}
+.esds-card-manage-tools { display:flex; flex:0 0 auto; align-items:center; gap:4px; }
+.esds-background-manage-menu { flex:0 0 auto; margin-left:auto; }
+.esds-bg-template-info { display:flex; align-items:center; gap:7px; min-width:0; }
+.esds-bg-template-info > span:first-child { flex:1 1 auto; min-width:0; }
+
+/* Selected item: a small accent dot in the upper-right, never a full-card highlight. */
+.esds-template-card.esds-palette-template-card,
+.esds-block-template-card,
+.esds-bg-card,
+.esds-palette-card,
+.esds-block-card { position:relative !important; }
+.esds-template-card.is-selected,
+.esds-block-template-card.is-selected,
+.esds-bg-card.is-selected,
+.esds-palette-card.is-selected,
+.esds-block-card.is-selected {
+  border-color:var(--background-modifier-border) !important;
+  border-width:1px !important;
+  box-shadow:none !important;
+  outline:none;
+}
+.esds-template-card.is-selected::after,
+.esds-block-template-card.is-selected::after,
+.esds-bg-card.is-selected::after,
+.esds-palette-card.is-selected::after,
+.esds-block-card.is-selected::after {
+  content:"";
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:5;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--interactive-accent);
+  box-shadow:0 0 0 3px var(--background-primary);
+  pointer-events:none;
+}
+.esds-template-check,
+.esds-card-check,
+.esds-card-selected-badge { display:none !important; }
+.esds-template-card.is-selected,
+.esds-block-template-card.is-selected,
+.esds-bg-card.is-selected,
+.esds-palette-card.is-selected,
+.esds-block-card.is-selected { background-color:var(--background-secondary) !important; }
+
+/* Selected legacy block cards use the same dot-only indicator. */
+.esds-block-card.is-selected .esds-block-style-preview {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.esds-template-card.is-selected .esds-card-manage-tools { margin-right: 13px; }
+.esds-template-card.is-selected:focus-visible,
+.esds-block-template-card.is-selected:focus-visible,
+.esds-bg-card.is-selected:focus-visible,
+.esds-palette-card.is-selected:focus-visible,
+.esds-block-card.is-selected:focus-visible {
+  outline: 2px solid var(--interactive-accent) !important;
+  outline-offset: 2px;
+}
+
+.esds-custom-bg-preview {
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  padding: 10px 13px; box-sizing: border-box;
+}
+.esds-custom-bg-preview strong { font-size: .85rem; }
+.esds-custom-bg-preview span { font-size: .76rem; }
+.esds-custom-bg-preview small { font-size: .68rem; opacity: .82; }
+
+/* 0.6.6 — separate favourites for individual library entries. */
+.esds-item-favorite-button {
+  flex: 0 0 auto;
+  min-width: 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--interactive-accent);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.esds-favorite-item-row { gap: 9px; }
+.esds-favorite-item-mark {
+  display: flex; flex: 0 0 34px; width: 34px; height: 34px;
+  align-items: center; justify-content: center;
+  border-radius: 10px; background: var(--background-modifier-hover);
+  color: var(--interactive-accent); font-weight: 800;
+}
+.esds-favorite-item-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.esds-favorite-item-info strong { overflow-wrap: anywhere; }
+.esds-favorite-item-info small { color: var(--text-muted); font-size: .72rem; }
+
+/* 0.7.0 — universal content profile controls */
+.esds-profile-label { display:block; margin:8px 0 5px; color:var(--text-muted); font-size:.78rem; font-weight:650; }
+.esds-profile-select { width:100%; min-height:40px; }
+.esds-profile-description { margin:9px 0; padding:11px 12px; border:1px solid var(--background-modifier-border); border-radius:12px; background:var(--background-secondary); }
+.esds-profile-description strong { display:block; margin-bottom:4px; }
+.esds-profile-description p { margin:0; color:var(--text-muted); font-size:.82rem; line-height:1.45; }
+.esds-profile-hint { margin:7px 0 10px; color:var(--text-muted); }
+.esds-profile-tools { display:flex; flex-wrap:wrap; gap:7px; margin:8px 0 12px; }
+.esds-profile-tools .esds-button { flex:1 1 145px; min-height:36px; }
+.esds-semantic-preview { margin-top:12px; padding:13px; border:1px solid var(--background-modifier-border); border-radius:12px; background:var(--background-primary); line-height:1.55; }
+.esds-semantic-preview > p:first-child { margin:0 0 9px; font-size:.76rem; font-weight:750; color:var(--text-muted); text-transform:uppercase; letter-spacing:.04em; }
+.esds-semantic-preview > p { margin:7px 0; }
+
+/* Universal semantic classes are scoped to notes carrying the ESDS note class.
+   Lightweight only: colour + moderate weight. No backgrounds, padding, borders or underlines
+   to keep Android WebView rendering fast when notes contain many spans + bold/italic. */
+.markdown-preview-view.esds-note .esds-lead,
+.markdown-source-view.esds-note .esds-lead { color:var(--esds-definition,var(--text-muted)); font-size:1.04em; line-height:1.65; }
+.markdown-preview-view.esds-note .esds-focus,
+.markdown-source-view.esds-note .esds-focus { color:var(--esds-focus,var(--text-accent)); font-weight:700; }
+.markdown-preview-view.esds-note .esds-focus-secondary,
+.markdown-source-view.esds-note .esds-focus-secondary { color:var(--esds-secondary,var(--text-accent)); font-weight:650; }
+.markdown-preview-view.esds-note .esds-term,
+.markdown-source-view.esds-note .esds-term { color:var(--esds-term,var(--text-accent)); font-weight:700; }
+.markdown-preview-view.esds-note .esds-definition,
+.markdown-source-view.esds-note .esds-definition { color:var(--esds-definition,var(--text-normal)); }
+.markdown-preview-view.esds-note .esds-stat,
+.markdown-source-view.esds-note .esds-stat { color:var(--esds-focus,var(--text-accent)); font-weight:750; font-variant-numeric:tabular-nums; white-space:normal; overflow-wrap:anywhere; }
+.markdown-preview-view.esds-note .esds-quote,
+.markdown-source-view.esds-note .esds-quote { color:var(--esds-soft,var(--text-muted)); }
+.markdown-preview-view.esds-note .esds-summary,
+.markdown-source-view.esds-note .esds-summary { font-weight:700; }
+.markdown-preview-view.esds-note .esds-source,
+.markdown-source-view.esds-note .esds-source { color:var(--text-muted); font-size:.88em; }
+.markdown-preview-view.esds-note .esds-note,
+.markdown-source-view.esds-note .esds-note { /* no background/padding — avoids layout cost on many small spans */ }
+.markdown-preview-view.esds-note .esds-warning,
+.markdown-source-view.esds-note .esds-warning,
+.markdown-preview-view.esds-note .esds-risk,
+.markdown-source-view.esds-note .esds-risk { color:var(--esds-secondary,var(--text-warning)); font-weight:650; }
+.markdown-preview-view.esds-note .esds-example,
+.markdown-source-view.esds-note .esds-example { color:var(--esds-translation,var(--text-normal)); }
+.markdown-preview-view.esds-note .esds-fact,
+.markdown-source-view.esds-note .esds-fact { font-weight:650; }
+.markdown-preview-view.esds-note .esds-argument,
+.markdown-source-view.esds-note .esds-argument { }
+.markdown-preview-view.esds-note .esds-counterpoint,
+.markdown-source-view.esds-note .esds-counterpoint { }
+.markdown-preview-view.esds-note .esds-cause,
+.markdown-source-view.esds-note .esds-cause { color:var(--esds-term,var(--text-accent)); }
+.markdown-preview-view.esds-note .esds-consequence,
+.markdown-source-view.esds-note .esds-consequence { font-weight:650; color:var(--esds-focus,var(--text-accent)); }
+.markdown-preview-view.esds-note .esds-date,
+.markdown-source-view.esds-note .esds-date { font-weight:700; font-variant-numeric:tabular-nums; color:var(--esds-heading,var(--text-accent)); white-space:normal; overflow-wrap:anywhere; }
+.markdown-preview-view.esds-note .esds-person,
+.markdown-source-view.esds-note .esds-person { font-weight:700; color:var(--esds-term,var(--text-accent)); }
+.markdown-preview-view.esds-note .esds-event,
+.markdown-source-view.esds-note .esds-event { font-weight:650; }
+.markdown-preview-view.esds-note .esds-trend,
+.markdown-source-view.esds-note .esds-trend { font-weight:700; color:var(--esds-translation,var(--text-accent)); }
+
+/* Per-note profiles only refine selected semantic roles; they do not alter article content. */
+.markdown-preview-view.esds-note.esds-profile-finance .esds-stat,
+.markdown-source-view.esds-note.esds-profile-finance .esds-stat { font-size:1.08em; letter-spacing:-.02em; }
+.markdown-preview-view.esds-note.esds-profile-history .esds-date,
+.markdown-source-view.esds-note.esds-profile-history .esds-date { font-variant:small-caps; letter-spacing:.025em; }
+.markdown-preview-view.esds-note.esds-profile-politics .esds-argument,
+.markdown-source-view.esds-note.esds-profile-politics .esds-argument { border-left-style:solid; }
+.markdown-preview-view.esds-note.esds-profile-academic .esds-definition,
+.markdown-source-view.esds-note.esds-profile-academic .esds-definition {  font-weight:550; }
+
+
+/* 0.7.1 safety patch: keep plugin layout local and mobile-friendly. */
+.markdown-preview-view.esds-note,
+.markdown-source-view.esds-note {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.markdown-preview-view.esds-note .markdown-preview-sizer,
+.markdown-source-view.esds-note .cm-scroller,
+.markdown-source-view.esds-note .cm-content,
+.markdown-source-view.esds-note .cm-contentContainer {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.markdown-preview-view.esds-note .callout,
+.markdown-source-view.esds-note .callout,
+.markdown-preview-view.esds-note .callout-content,
+.markdown-source-view.esds-note .callout-content,
+.markdown-preview-view.esds-note .callout-title,
+.markdown-source-view.esds-note .callout-title {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.markdown-preview-view.esds-note .callout-content > *,
+.markdown-source-view.esds-note .callout-content > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.markdown-preview-view.esds-note .esds-stat,
+.markdown-source-view.esds-note .esds-stat,
+.markdown-preview-view.esds-note .esds-date,
+.markdown-source-view.esds-note .esds-date {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* 0.7.2 article typography and outline cleanup — scoped to ESDS notes only. */
+.markdown-preview-view.esds-note blockquote,
+.markdown-source-view.esds-note .cm-quote,
+.markdown-source-view.esds-note .HyperMD-quote {
+  font-style: normal;
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+.markdown-preview-view.esds-note.esds-blocks-outline .callout,
+.markdown-source-view.esds-note.esds-blocks-outline .callout {
+  border-left-width: 1px !important;
+  border-left-style: solid !important;
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "type": "esds-background",
+  "background": {
+    "name": "My Custom Background",
+    "group": "Мои фоны",
+    "light": "linear-gradient(135deg, #e8f1ed 0%, #d6e6df 100%)",
+    "dark": "linear-gradient(135deg, #292d35 0%, #20242d 100%)",
+    "textColor": "#302d31",
+    "darkTextColor": "#e9eaf0"
+  }
+}

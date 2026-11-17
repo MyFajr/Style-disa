@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 3,
+  "palettes": [],
+  "backgrounds": [],
+  "blockStyles": [],
+  "categories": {
+    "palettes": [
+      {
+        "id": "standard",
+        "name": "Стандартные",
+        "order": 0,
+        "protected": true
+      },
+      {
+        "id": "mine",
+        "name": "Мои палитры",
+        "order": 99,
+        "protected": true
+      }
+    ],
+    "backgrounds": [
+      {
+        "id": "reading",
+        "name": "Для чтения",
+        "order": 0,
+        "protected": true
+      },
+      {
+        "id": "gradients",
+        "name": "Мягкие градиенты",
+        "order": 1,
+        "protected": true
+      },
+      {
+        "id": "dark",
+        "name": "Тёмные фоны",
+        "order": 2,
+        "protected": true
+      },
+      {
+        "id": "expressive",
+        "name": "Выразительные фоны",
+        "order": 3,
+        "protected": true
+      },
+      {
+        "id": "mine",
+        "name": "Мои фоны",
+        "order": 99,
+        "protected": true
+      }
+    ],
+    "blockStyles": [
+      {
+        "id": "soft",
+        "name": "Мягкие цветные",
+        "order": 0,
+        "protected": true
+      },
+      {
+        "id": "rich",
+        "name": "Насыщенные",
+        "order": 1,
+        "protected": true
+      },
+      {
+        "id": "outline",
+        "name": "Контурные",
+        "order": 2,
+        "protected": true
+      },
+      {
+        "id": "mine",
+        "name": "Мои стили",
+        "order": 99,
+        "protected": true
+      }
+    ]
+  },
+  "favorites": [],
+  "favoriteItems": [],
+  "recent": [
+    {
+      "key": "royal-plum|bg-24-rich-burgundy|outline",
+      "label": "Royal Plum · 24 · Бордовый нуар",
+      "paletteId": "royal-plum",
+      "backgroundId": "bg-24-rich-burgundy",
+      "blocksId": "outline"
+    },
+    {
+      "key": "royal-plum|bg-06-reading-sage|outline",
+      "label": "Royal Plum · 06 · Шалфейный туман",
+      "paletteId": "royal-plum",
+      "backgroundId": "bg-06-reading-sage",
+      "blocksId": "outline"
+    },
+    {
+      "key": "royal-plum|bg-14-wisteria-haze|outline",
+      "label": "Royal Plum · 14 · Глициниевая дымка",
+      "paletteId": "royal-plum",
+      "backgroundId": "bg-14-wisteria-haze",
+      "blocksId": "outline"
+    }
+  ],
+  "contentProfiles": [
+    {
+      "id": "general",
+      "name": "Универсальная статья",
+      "paletteId": "candy-pop",
+      "backgroundId": "bg-05-reading-mist",
+      "blockStyleId": "soft",
+      "description": "Для обычных статей, заметок и аналитических материалов.",
+      "guidance": "Используй акценты умеренно: главная мысль, понятия, факты и выводы."
+    },
+    {
+      "id": "finance",
+      "name": "Финансы и экономика",
+      "paletteId": "ocean-breeze",
+      "backgroundId": "bg-12-sea-glass",
+      "blockStyleId": "rich",
+      "description": "Для финансовых обзоров, экономики, рынков и показателей.",
+      "guidance": "Выделяй финансовые термины, числовые показатели, риски, аргументы и выводы."
+    },
+    {
+      "id": "history",
+      "name": "История",
+      "paletteId": "royal-plum",
+      "backgroundId": "bg-02-reading-parchment",
+      "blockStyleId": "outline",
+      "description": "Для исторических материалов, периодов, событий и личностей.",
+      "guidance": "Выделяй даты, личности, события, причины, последствия и цитаты."
+    },
+    {
+      "id": "politics",
+      "name": "Политика",
+      "paletteId": "ocean-breeze",
+      "backgroundId": "bg-18-blue-hour",
+      "blockStyleId": "rich",
+      "description": "Для политической аналитики и обзоров общественных событий.",
+      "guidance": "Разделяй проверяемые факты, позиции, аргументы, контраргументы и источники."
+    },
+    {
+      "id": "academic",
+      "name": "Научный и учебный материал",
+      "paletteId": "royal-plum",
+      "backgroundId": "bg-03-reading-linen",
+      "blockStyleId": "outline",
+      "description": "Для исследований, объяснений, учебных и технических заметок.",
+      "guidance": "Выделяй определения, термины, методику, примеры, результаты и выводы."
+    },
+    {
+      "id": "english",
+      "name": "Английский язык",
+      "paletteId": "candy-pop",
+      "backgroundId": "bg-08-reading-rose-cloud",
+      "blockStyleId": "soft",
+      "description": "Для существующей системы английских слов, IPA, переводов и упражнений.",
+      "guidance": "Сохраняй специальные языковые классы: esds-en, esds-ipa, esds-translation."
+    }
+  ]
+}

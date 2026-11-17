@@ -1,0 +1,9 @@
+{
+  "id": "english-study-design-studio",
+  "name": "English Study Design Studio",
+  "version": "0.7.4",
+  "minAppVersion": "1.5.0",
+  "description": "Universal content styling for Obsidian: semantic text roles, palettes, backgrounds, callout styles and per-note profiles.",
+  "author": "Custom personal plugin",
+  "isDesktopOnly": false
+}
